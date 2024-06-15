@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vivado/Project/net_engine_ip/net_engine_ip.sim/sim_1/synth/func/xsim/net_engine_v1_0_tb_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module conv_cell
+INFO: [VRFC 10-311] analyzing module conv_cell_0
+INFO: [VRFC 10-311] analyzing module net_engine_v1_0
+INFO: [VRFC 10-311] analyzing module net_engine_v1_0_M00_AXIS
+INFO: [VRFC 10-311] analyzing module net_engine_v1_0_S00_AXI
+INFO: [VRFC 10-311] analyzing module net_engine_v1_0_S00_AXIS
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Vivado/Project/net_engine_ip/net_engine_ip.sim/sim_1/net_engine_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module net_engine_v1_0_tb
