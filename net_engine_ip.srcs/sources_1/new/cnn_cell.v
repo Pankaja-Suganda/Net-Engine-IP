@@ -90,7 +90,7 @@ end
 // sum operation
 always @(*) begin
     sum_reg = 0;
-    for(sum_i = 0; sum_i < (KERNAL_SIZE * KERNAL_SIZE) - 1; sum_i = sum_i + 1) begin
+    for(sum_i = 0; sum_i < (KERNAL_SIZE * KERNAL_SIZE); sum_i = sum_i + 1) begin
         sum_reg = sum_reg + multiply_reg[sum_i];
     end
     

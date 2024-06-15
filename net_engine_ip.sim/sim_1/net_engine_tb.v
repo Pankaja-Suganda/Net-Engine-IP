@@ -8,6 +8,7 @@ module net_engine_v1_0_tb;
     parameter integer C_S00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_START_COUNT = 32;
+    parameter integer C_NET_CELL_COUNT       = 100;
 
     // Signals
     reg s00_axi_aclk;
@@ -25,6 +26,8 @@ module net_engine_v1_0_tb;
     reg s00_axi_bready;
     reg [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_araddr;
     reg [2 : 0] s00_axi_arprot;
+    reg [3:0] OUT_WRITE_POINTER;
+    reg [3:0] OUT_READ_POINTER;
     reg s00_axi_arvalid;
     wire s00_axi_arready;
     wire [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata;
@@ -48,9 +51,12 @@ module net_engine_v1_0_tb;
     wire m00_axis_tlast;
     reg m00_axis_tready;
     
+//    wire [31:0] OUT_READ_POINTER;
+//    wire [31:0] OUT_WRITE_POINTER;
     wire completed;
     wire S_WRITE_COMPLETE;
     wire [2:0] status;
+    integer i;
 
     // Instantiate the Unit Under Test (UUT)
     net_engine_v1_0 # (
@@ -58,7 +64,8 @@ module net_engine_v1_0_tb;
         .C_S00_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH),
         .C_S00_AXIS_TDATA_WIDTH(C_S00_AXIS_TDATA_WIDTH),
         .C_M00_AXIS_TDATA_WIDTH(C_M00_AXIS_TDATA_WIDTH),
-        .C_M00_AXIS_START_COUNT(C_M00_AXIS_START_COUNT)
+        .C_M00_AXIS_START_COUNT(C_M00_AXIS_START_COUNT),
+        .C_NET_CELL_COUNT(C_NET_CELL_COUNT)
     ) uut (
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -96,6 +103,8 @@ module net_engine_v1_0_tb;
         .m00_axis_tlast(m00_axis_tlast),
         .m00_axis_tready(m00_axis_tready),
         .S_WRITE_COMPLETE(S_WRITE_COMPLETE)
+//		.OUT_WRITE_POINTER(OUT_WRITE_POINTER),
+//		.OUT_READ_POINTER(OUT_READ_POINTER)
     );
 
     // Clock generation
@@ -160,27 +169,33 @@ module net_engine_v1_0_tb;
 //        axi_slave_read(7'd28);
 
         // AXIS Write Sequence (8 data points)
+//        s00_axis_tvalid = 1;
+//        axis_slave_write(32'hAAAAAAAA);
+//        axis_slave_write(32'hBBBBBBBB);
+//        axis_slave_write(32'hCCCCCCCC);
+//        axis_slave_write(32'hDDDDDDDD);
+//        axis_slave_write(32'hEEEEEEEE);
+//        axis_slave_write(32'hFFFFFFFF);
+//        axis_slave_write(32'h11111111);
+//        axis_slave_write(32'h22222222);
+//        axis_slave_write(32'h33333333);
+//        axis_slave_write(32'h44444444);
+//        axis_slave_write(32'h55555555);
+//        axis_slave_write(32'h66666666);
+//        axis_slave_write(32'h77777777);
+//        axis_slave_write(32'h88888888);
+//        axis_slave_write(32'h99999999);
+//        axis_slave_write(32'h55555555);
+//        axis_slave_write(32'h66666666);
+//        axis_slave_write(32'h77777777);
+//        axis_slave_write(32'h88888888);
+//        axis_slave_write(32'h99999999);
+//        s00_axis_tvalid = 0;
+
         s00_axis_tvalid = 1;
-        axis_slave_write(32'hAAAAAAAA);
-        axis_slave_write(32'hBBBBBBBB);
-        axis_slave_write(32'hCCCCCCCC);
-        axis_slave_write(32'hDDDDDDDD);
-        axis_slave_write(32'hEEEEEEEE);
-        axis_slave_write(32'hFFFFFFFF);
-        axis_slave_write(32'h11111111);
-        axis_slave_write(32'h22222222);
-        axis_slave_write(32'h33333333);
-        axis_slave_write(32'h44444444);
-        axis_slave_write(32'h55555555);
-        axis_slave_write(32'h66666666);
-        axis_slave_write(32'h77777777);
-        axis_slave_write(32'h88888888);
-        axis_slave_write(32'h99999999);
-        axis_slave_write(32'h55555555);
-        axis_slave_write(32'h66666666);
-        axis_slave_write(32'h77777777);
-        axis_slave_write(32'h88888888);
-        axis_slave_write(32'h99999999);
+        for ( i = 0; i < (C_NET_CELL_COUNT * 9) + 2; i = i + 1) begin
+            axis_slave_write({i, 24'h0});
+        end
         s00_axis_tvalid = 0;
 
         // AXIS Read Sequence (8 data points)

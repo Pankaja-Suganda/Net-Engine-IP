@@ -70,9 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
 
@@ -95,7 +92,6 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v
-  D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_M00_AXIS.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v
