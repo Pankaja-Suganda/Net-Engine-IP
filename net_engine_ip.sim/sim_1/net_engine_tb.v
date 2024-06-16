@@ -3,12 +3,12 @@
 module net_engine_v1_0_tb;
 
     // Parameters
-    parameter integer C_S00_AXI_DATA_WIDTH = 32;
-    parameter integer C_S00_AXI_ADDR_WIDTH = 7;
+    parameter integer C_S00_AXI_DATA_WIDTH   = 32;
+    parameter integer C_S00_AXI_ADDR_WIDTH   = 7;
     parameter integer C_S00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_START_COUNT = 32;
-    parameter integer C_NET_CELL_COUNT       = 100;
+    parameter integer C_NET_CELL_COUNT       = 4;
 
     // Signals
     reg s00_axi_aclk;
@@ -26,8 +26,6 @@ module net_engine_v1_0_tb;
     reg s00_axi_bready;
     reg [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_araddr;
     reg [2 : 0] s00_axi_arprot;
-    reg [3:0] OUT_WRITE_POINTER;
-    reg [3:0] OUT_READ_POINTER;
     reg s00_axi_arvalid;
     wire s00_axi_arready;
     wire [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata;
@@ -51,8 +49,8 @@ module net_engine_v1_0_tb;
     wire m00_axis_tlast;
     reg m00_axis_tready;
     
-//    wire [31:0] OUT_READ_POINTER;
-//    wire [31:0] OUT_WRITE_POINTER;
+    wire [31:0] OUT_READ_POINTER;
+    wire [31:0] OUT_WRITE_POINTER;
     wire completed;
     wire S_WRITE_COMPLETE;
     wire [2:0] status;
@@ -102,9 +100,9 @@ module net_engine_v1_0_tb;
         .m00_axis_tstrb(m00_axis_tstrb),
         .m00_axis_tlast(m00_axis_tlast),
         .m00_axis_tready(m00_axis_tready),
-        .S_WRITE_COMPLETE(S_WRITE_COMPLETE)
-//		.OUT_WRITE_POINTER(OUT_WRITE_POINTER),
-//		.OUT_READ_POINTER(OUT_READ_POINTER)
+        .S_WRITE_COMPLETE(S_WRITE_COMPLETE),
+		.OUT_WRITE_POINTER(OUT_WRITE_POINTER),
+		.OUT_READ_POINTER(OUT_READ_POINTER)
     );
 
     // Clock generation
@@ -148,7 +146,7 @@ module net_engine_v1_0_tb;
         // Wait for reset to be released
         #100;
 
-//        // AXI Slave Write Sequence
+        // AXI Slave Write Sequence
 //        axi_slave_write(7'd0, 32'hDEADBEEF);
 //        axi_slave_write(7'd4, 32'hCAFEBABE);
 //        axi_slave_write(7'd8, 32'hF00DBEEF);
@@ -158,7 +156,7 @@ module net_engine_v1_0_tb;
 //        axi_slave_write(7'd24, 32'h12345678);
 //        axi_slave_write(7'd28, 32'h87654321);
 
-//        // AXI Slave Read Sequence
+        // AXI Slave Read Sequence
 //        axi_slave_read(7'd0);
 //        axi_slave_read(7'd4);
 //        axi_slave_read(7'd8);
@@ -194,6 +192,18 @@ module net_engine_v1_0_tb;
 
         s00_axis_tvalid = 1;
         for ( i = 0; i < (C_NET_CELL_COUNT * 9) + 2; i = i + 1) begin
+            axis_slave_write({i, 24'h0});
+        end
+        s00_axis_tvalid = 0;
+
+        // AXIS Read Sequence (8 data points)
+        #200
+        m00_axis_tready = 1;
+        
+        #200
+        
+        s00_axis_tvalid = 1;
+        for ( i = 10; i < (C_NET_CELL_COUNT * 9) + 2 + 10; i = i + 1) begin
             axis_slave_write({i, 24'h0});
         end
         s00_axis_tvalid = 0;
