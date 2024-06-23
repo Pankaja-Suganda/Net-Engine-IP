@@ -1,0 +1,426 @@
+/*
+
+AMD Vivado v2023.2 (64-bit) [Major: 2023, Minor: 2]
+SW Build: 4029153 on Fri Oct 13 20:14:34 MDT 2023
+IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
+IP Build: 4028589 on Sat Oct 14 00:45:43 MDT 2023
+
+Process ID (PID): 3780
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Jun 17 21:34:46 IST 2024
+Time zone: 	India Standard Time (Asia/Colombo)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Local screen bounds: x = 0, y = 0, width = 1920, height = 1030
+Screen resolution (DPI): 125
+Available screens: 1
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=15
+Scale size: 19
+OS font scaling: 125%
+Anti-Alias Enabled: false
+
+Java version: 	17.0.7 64-bit
+JavaFX version: 17.0.1
+Java home: 	D:/Vivado/Software/Vivado/2023.2/tps/win64/jre17.0.7_7
+Java executable: 	D:/Vivado/Software/Vivado/2023.2/tps/win64/jre17.0.7_7/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, -XX:+UseStringDeduplication, -XX:MaxGCPauseMillis=200, -XX:+ParallelRefProcEnabled, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, -XX:NewSize=80m, -XX:MaxNewSize=80m, -Xms512m, -Xmx4072m, -Xss10m]
+Java initial memory (-Xms): 	512 MB
+Java maximum memory (-Xmx):	 3 GB
+
+User name: 	Pankaja Suganda
+User home directory: C:/Users/Pankaja Suganda
+User working directory: D:/Vivado/Project/net_engine_ip
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: D:/Vivado/Software/Vivado
+HDI_APPROOT: D:/Vivado/Software/Vivado/2023.2
+RDI_DATADIR: D:/Vivado/Software/Vivado/2023.2/data
+RDI_BINDIR: D:/Vivado/Software/Vivado/2023.2/bin
+
+Vivado preferences file: C:/Users/Pankaja Suganda/AppData/Roaming/Xilinx/Vivado/2023.2/vivado.xml
+Vivado preferences directory: C:/Users/Pankaja Suganda/AppData/Roaming/Xilinx/Vivado/2023.2/
+Vivado layouts directory: C:/Users/Pankaja Suganda/AppData/Roaming/Xilinx/Vivado/2023.2/data/layouts
+PlanAhead jar file: 	D:/Vivado/Software/Vivado/2023.2/lib/classes/planAhead.jar
+Vivado log file: 	D:/Vivado/Project/net_engine_ip/vivado.log
+Vivado journal file: 	D:/Vivado/Project/net_engine_ip/vivado.jou
+Engine tmp dir: 	D:/Vivado/Project/net_engine_ip/.Xil/Vivado-3780-DESKTOP-RSN2NHS
+Non-Default Parameters:	[]
+
+Xilinx & AMD Environment Variables
+--------------------------------------------------------------------------------------------
+RDI_APPROOT: D:/Vivado/Software/Vivado/2023.2
+RDI_ARGS:  -gui_launcher_event rodinguilauncherevent4100 "D:\Vivado\Project\net_engine_ip\net_engine_ip.xpr"
+RDI_ARGS_FUNCTION: RDI_EXEC_DEFAULT
+RDI_BASEROOT: D:/Vivado/Software/Vivado
+RDI_BINDIR: D:/Vivado/Software/Vivado/2023.2/bin
+RDI_BINROOT: D:/Vivado/Software/Vivado/2023.2/bin
+RDI_BUILD: yes
+RDI_CHECK_PROG: True
+RDI_DATADIR: D:/Vivado/Software/Vivado/2023.2/data
+RDI_INSTALLROOT: D:/Vivado/Software
+RDI_INSTALLVER: 2023.2
+RDI_INSTALLVERSION: 2023.2
+RDI_ISE_PLATFORM: nt64
+RDI_JAVACEFROOT: D:/Vivado/Software/Vivado/2023.2/tps/win64/java-cef-95.0.4638.69
+RDI_JAVAFXROOT: D:/Vivado/Software/Vivado/2023.2/tps/win64/javafx-sdk-17.0.1
+RDI_JAVAROOT: D:/Vivado/Software/Vivado/2023.2/tps/win64/jre17.0.7_7
+RDI_JAVA_VERSION: 17.0.7_7
+RDI_LIBDIR: D:/Vivado/Software/Vivado/2023.2/lib/win64.o
+RDI_MINGW_LIB: D:/Vivado/Software/Vivado/2023.2\tps\mingw\6.2.0\win64.o\nt\bin;D:/Vivado/Software/Vivado/2023.2\tps\mingw\6.2.0\win64.o\nt\libexec\gcc\x86_64-w64-mingw32\6.2.0
+RDI_OPT_EXT: .o
+RDI_PLATFORM: win64
+RDI_PREPEND_PATH: D:/Vivado/Software/Vitis/2023.2/bin;D:/Vivado/Software/Vivado/2023.2/ids_lite/ISE/bin/nt64;D:/Vivado/Software/Vivado/2023.2/ids_lite/ISE/lib/nt64
+RDI_PROG: D:/Vivado/Software/Vivado/2023.2/bin/unwrapped/win64.o/vivado.exe
+RDI_PROGNAME: vivado.exe
+RDI_PYTHON3: D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3
+RDI_PYTHON3_VERSION: 3.8.3
+RDI_PYTHONHOME: D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3
+RDI_PYTHONPATH: D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3;D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3\bin;D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3\lib;D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3\lib\site-packages
+RDI_PYTHON_LD_LIBPATH: D:/Vivado/Software/Vivado/2023.2\tps\win64\python-3.8.3\lib
+RDI_SESSION_INFO: D:\Vivado\Project\net_engine_ip:DESKTOP-RSN2NHS-Mon06-17-2024_21-34-24.37
+RDI_SHARED_DATA: D:/Vivado/Software/SharedData/2023.2/data
+RDI_TPS_ROOT: D:/Vivado/Software/Vivado/2023.2/tps/win64
+RDI_USE_JDK17: True
+RDI_VERBOSE: False
+XILINX: D:/Vivado/Software/Vivado/2023.2/ids_lite/ISE
+XILINX_DSP: D:/Vivado/Software/Vivado/2023.2/ids_lite/ISE
+XILINX_HLS: D:/Vivado/Software/Vitis_HLS/2023.2
+XILINX_PLANAHEAD: D:/Vivado/Software/Vivado/2023.2
+XILINX_SDK: D:/Vivado/Software/Vitis/2023.2
+XILINX_VITIS: D:/Vivado/Software/Vitis/2023.2
+XILINX_VIVADO: D:/Vivado/Software/Vivado/2023.2
+XILINX_VIVADO_HLS: D:/Vivado/Software/Vivado/2023.2
+_RDI_BINROOT: D:\Vivado\Software\Vivado\2023.2\bin
+_RDI_CWD: D:\Vivado\Project\net_engine_ip
+
+
+GUI allocated memory:	512 MB
+GUI max memory:		4,072 MB
+Engine allocated memory: 765 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: D:\Vivado\Project\net_engine_ip\net_engine_ip.xpr. Version: Vivado v2023.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project D:/Vivado/Project/net_engine_ip/net_engine_ip.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 800 MB. GUI used memory: 73 MB. Current time: 6/17/24, 9:34:47 PM IST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: MSGMGR_REFRESH_MSG
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project D:/Vivado/Project/net_engine_ip/net_engine_ip.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Software/Vivado/2023.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 158 MB (+162993kb) [00:00:35]
+// [Engine Memory]: 1,052 MB (+951749kb) [00:00:36]
+// WARNING: HEventQueue.dispatchEvent() is taking  15533 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,091 MB. GUI used memory: 95 MB. Current time: 6/17/24, 9:35:19 PM IST
+// Tcl Message: open_project: Time (s): cpu = 00:01:05 ; elapsed = 00:00:35 . Memory (MB): peak = 1410.148 ; gain = 317.941 
+// Project name: net_engine_ip; location: D:/Vivado/Project/net_engine_ip; part: xc7z020clg400-1
+dismissDialog("Open Project"); // bq (Open Project Progress)
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1309 ms. Increasing delay to 3927 ms.
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 1,113 MB (+9017kb) [00:01:00]
+// Elapsed Time for: 'L.f': 24s
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed Time for: 'L.f': 26s
+// Elapsed Time for: 'L.f': 28s
+// Elapsed time: 42 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (PAResourceAtoD.CmdMsgDialog_OK)
+dismissDialog("Critical Messages"); // a (dialog0)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// Elapsed time: 86 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ag (PAResourceItoN.MainMenuMgr_FILE, File)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // al (PAResourceItoN.MainMenuMgr_PROJECT, Project)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // al (PAResourceItoN.MainMenuMgr_PROJECT, Project)
+selectMenuItem(PAResourceCommand.PACommandNames_NEW_PROJECT, "New..."); // ao (PAResourceCommand.PACommandNames_NEW_PROJECT, new_project_menu)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ag (PAResourceItoN.MainMenuMgr_FILE, File)
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectMoreButton(PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION, (String) null); // r (PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,120 MB. GUI used memory: 97 MB. Current time: 6/17/24, 9:37:57 PM IST
+// Elapsed time: 27 seconds
+setFolderChooser("D:/Vivado/Project/net_engine_ip_v1");
+// Elapsed time: 23 seconds
+setText(PAResourceOtoP.ProjectNameChooser_PROJECT_NAME, "net_engine"); // Q (PAResourceOtoP.ProjectNameChooser_PROJECT_NAME)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectTab(PAResourceOtoP.PartChooser_TABBED_PANE, (HResource) null, "Boards", 1); // g (PAResourceOtoP.PartChooser_TABBED_PANE)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,290 MB. GUI used memory: 98 MB. Current time: 6/17/24, 9:38:52 PM IST
+selectComboBox(PAResourceAtoD.BoardChooser_VENDOR, "tul.com.tw", 8); // a.a (PAResourceAtoD.BoardChooser_VENDOR)
+// [Engine Memory]: 1,290 MB (+126884kb) [00:04:24]
+selectTreeTable(PAResourceAtoD.BoardChooser_BOARD_TABLE, "pynq-z2 ; pynq-z2 ; pynq-z2 ; tul.com.tw ; 1.0 ; pynq-z2 ; 400 ; 1.0 ; 125 ; 53200 ; 106400 ; 140 ; 0 ; 220 ; 32 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 4 ;  ;  ;  ;  ; 0 ;  ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 0, "pynq-z2", 0, false); // l (PAResourceAtoD.BoardChooser_BOARD_TABLE)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// TclEventType: PROJECT_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,292 MB. GUI used memory: 97 MB. Current time: 6/17/24, 9:38:59 PM IST
+selectButton("OptionPane.button", "Yes"); // JButton (OptionPane.button)
+// Tcl Message: close_project 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project net_engine D:/Vivado/Project/net_engine_ip_v1/net_engine -part xc7z020clg400-1 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2777 ms.
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Software/Vivado/2023.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 168 MB (+2105kb) [00:04:34]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project] 
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: set_property  ip_repo_paths  D:/Vivado/Project/ip_repo [current_project] 
+// TclEventType: CREATE_IP_CATALOG
+// Tcl Message: update_ip_catalog 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado/Project/ip_repo'. 
+selectButton("FINISH", "Finish"); // JButton (FINISH)
+// 'g' command handler elapsed time: 84 seconds
+dismissDialog("Create Project"); // bq (Create Project Progress)
+dismissDialog("New Project"); // f (dialog1)
+// Elapsed time: 53 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ag (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+selectMenuItem(PAResourceCommand.PACommandNames_IP_PACKAGER_WIZARD, "Create and Package New IP..."); // ao (PAResourceCommand.PACommandNames_IP_PACKAGER_WIZARD, ip_packager_wizard_menu)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // ag (PAResourceItoN.MainMenuMgr_TOOLS, Tools)
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER_WIZARD
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectRadioButton(PAResourceItoN.NewIpWizard_CREATE_NEW_AXI4_IP_CREATE_AXI4, "Create a new AXI4 peripheral. Create an AXI4 IP, driver, software test application, IP Integrator AXI4 VIP simulation and debug demonstration design."); // b (PAResourceItoN.NewIpWizard_CREATE_NEW_AXI4_IP_CREATE_AXI4)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// Elapsed time: 12 seconds
+setText(PAResourceItoN.NewIpWizard_NAME_MYIP, "net_engine"); // Q (PAResourceItoN.NewIpWizard_NAME_MYIP)
+selectMoreButton(PAResourceItoN.NewIpWizard_IP_DEFINITION_SOURCE_LOCATION, (String) null); // r (PAResourceItoN.NewIpWizard_IP_DEFINITION_SOURCE_LOCATION)
+// Elapsed time: 14 seconds
+setFolderChooser("D:/Vivado/Project/ip_repo/net_engine");
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+// Elapsed time: 15 seconds
+setText(PAResourceItoN.NewIpWizard_NUMBER_OF_REGISTERS, "20"); // Q (PAResourceItoN.NewIpWizard_NUMBER_OF_REGISTERS)
+selectButton(PAResourceItoN.NewIpWizard_ADD_NEW_INTERFACE, (String) null); // j (PAResourceItoN.NewIpWizard_ADD_NEW_INTERFACE)
+selectComboBox(PAResourceItoN.NewIpWizard_INTERFACE_TYPE, "Stream", 2); // d (PAResourceItoN.NewIpWizard_INTERFACE_TYPE)
+selectButton(PAResourceItoN.NewIpWizard_ADD_NEW_INTERFACE, (String) null); // j (PAResourceItoN.NewIpWizard_ADD_NEW_INTERFACE)
+selectComboBox(PAResourceItoN.NewIpWizard_INTERFACE_MODE, "Master", 0); // d (PAResourceItoN.NewIpWizard_INTERFACE_MODE)
+selectComboBox(PAResourceItoN.NewIpWizard_INTERFACE_TYPE, "Stream", 2); // d (PAResourceItoN.NewIpWizard_INTERFACE_TYPE)
+selectTree(PAResourceItoN.NewIpWizard_INTERFACES_TREE, "[Interfaces, S00_AXIS]", 2, false); // X (PAResourceItoN.NewIpWizard_INTERFACES_TREE)
+selectTree(PAResourceItoN.NewIpWizard_INTERFACES_TREE, "[Interfaces, M00_AXIS]", 3, false); // X (PAResourceItoN.NewIpWizard_INTERFACES_TREE)
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectRadioButton(PAResourceItoN.NewIpWizard_EDIT_IP, "Edit IP"); // a (PAResourceItoN.NewIpWizard_EDIT_IP)
+selectButton("FINISH", "Finish"); // JButton (FINISH)
+// 'n' command handler elapsed time: 75 seconds
+dismissDialog("Create and Package New IP"); // x (dialog4)
+// TclEventType: LOAD_FEATURE
+// Tcl Message: create_peripheral xilinx.com user net_engine 1.0 -dir D:/Vivado/Project/ip_repo/net_engine 
+// Tcl Message: add_peripheral_interface S00_AXI -interface_mode slave -axi_type lite [ipx::find_open_core xilinx.com:user:net_engine:1.0] 
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: set_property VALUE 20 [ipx::get_bus_parameters WIZ_NUM_REG -of_objects [ipx::get_bus_interfaces S00_AXI -of_objects [ipx::find_open_core xilinx.com:user:net_engine:1.0]]] 
+// Tcl Message: add_peripheral_interface S00_AXIS -interface_mode slave -axi_type stream [ipx::find_open_core xilinx.com:user:net_engine:1.0] 
+// Tcl Message: add_peripheral_interface M00_AXIS -interface_mode master -axi_type stream [ipx::find_open_core xilinx.com:user:net_engine:1.0] 
+// TclEventType: PACKAGER_OBJECT_ADD
+// Tcl Message: generate_peripheral -driver -bfm_example_design -debug_hw_example_design [ipx::find_open_core xilinx.com:user:net_engine:1.0] 
+// Tcl Message: write_peripheral [ipx::find_open_core xilinx.com:user:net_engine:1.0] 
+// TclEventType: PROJECT_CHANGE
+// Tcl Message: set_property  ip_repo_paths  {D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0 D:/Vivado/Project/ip_repo} [current_project] 
+// TclEventType: CREATE_IP_CATALOG
+// Tcl Message: update_ip_catalog -rebuild 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado/Project/ip_repo'. 
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: ipx::edit_ip_in_project -upgrade true -name edit_net_engine_v1_0 -directory D:/Vivado/Project/ip_repo/net_engine d:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/component.xml 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,313 MB. GUI used memory: 103 MB. Current time: 6/17/24, 9:41:27 PM IST
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2682 ms.
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Software/Vivado/2023.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 177 MB (+442kb) [00:07:01]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories 
+// Tcl Message: INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado/Project/ip_repo'. INFO: [IP_Flow 19-795] Syncing license key meta-data 
+// TclEventType: LOAD_FEATURE
+// TclEventType: PACKAGER_CURRENT_CORE
+// Run Command: PAResourceCommand.PACommandNames_IP_PACKAGER
+// WARNING: HEventQueue.dispatchEvent() is taking  1517 ms.
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// Tcl Message: ipx::edit_ip_in_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 1492.633 ; gain = 17.398 
+dismissDialog("Create Peripheral IP"); // bq (Create Peripheral IP Progress)
+selectList(PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST, "Ports and Interfaces", 4); // S (PAResourceOtoP.PackagerStepsPanel_PACKAGER_STEPS_LIST)
+selectTreeTable(PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE, "Clock and Reset Signals ;  ;  ;  ;  ;  ;  ;  ;  ; ", 3, "Clock and Reset Signals", 0, true); // w (PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE) - Node
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTreeTable(PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE, "Clock and Reset Signals ;  ;  ;  ;  ;  ;  ;  ;  ; ", 3); // w (PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE)
+collapseTreeTable(PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE, "Clock and Reset Signals ;  ;  ;  ;  ;  ;  ;  ;  ; ", 3); // w (PAResourceOtoP.PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v)]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// PAPropertyPanels.initPanels (net_engine_v1_0.v) elapsed time: 0.2s
+// Elapsed time: 34 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v)]", 1, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v)]", 1, true, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click - Node
+selectCodeEditor("net_engine_v1_0.v", 201, 67); // ad (net_engine_v1_0.v)
+typeControlKey((HResource) null, "net_engine_v1_0.v", 'v'); // ad (net_engine_v1_0.v)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 56s
+// [GUI Memory]: 192 MB (+7395kb) [00:07:56]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v)]", 1); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01m:00s
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed Time for: 'L.f': 01m:02s
+// Elapsed Time for: 'L.f': 01m:04s
+// Elapsed time: 15 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXI_inst : net_engine_v1_0_S00_AXI (net_engine_v1_0_S00_AXI.v)]", 2, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXI_inst : net_engine_v1_0_S00_AXI (net_engine_v1_0_S00_AXI.v)]", 2, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectCodeEditor("net_engine_v1_0_S00_AXI.v", 205, 103); // ad (net_engine_v1_0_S00_AXI.v)
+typeControlKey((HResource) null, "net_engine_v1_0_S00_AXI.v", 'v'); // ad (net_engine_v1_0_S00_AXI.v)
+// [Engine Memory]: 1,376 MB (+21962kb) [00:08:17]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,376 MB. GUI used memory: 120 MB. Current time: 6/17/24, 9:42:47 PM IST
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("net_engine_v1_0_S00_AXI.v", 200, 279); // ad (net_engine_v1_0_S00_AXI.v)
+// Elapsed Time for: 'L.f': 01m:21s
+// Elapsed Time for: 'L.f': 01m:24s
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : net_engine_v1_0_S00_AXIS (net_engine_v1_0_S00_AXIS.v)]", 3, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : net_engine_v1_0_S00_AXIS (net_engine_v1_0_S00_AXIS.v)]", 3, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectCodeEditor("net_engine_v1_0_S00_AXIS.v", 93, 144); // ad (net_engine_v1_0_S00_AXIS.v)
+typeControlKey((HResource) null, "net_engine_v1_0_S00_AXIS.v", 'v'); // ad (net_engine_v1_0_S00_AXIS.v)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 01m:40s
+selectCodeEditor("net_engine_v1_0_S00_AXIS.v", 330, 131); // ad (net_engine_v1_0_S00_AXIS.v)
+// Elapsed Time for: 'L.f': 01m:44s
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // f (PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, Flow Navigator Tree)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton (NEXT)
+selectButton(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File"); // a (PAResourceQtoS.SrcChooserPanel_CREATE_FILE)
+dismissDialog("Create Source File"); // m (dialog8)
+// 'f' command handler elapsed time: 11 seconds
+dismissDialog("Add Sources"); // c (dialog7)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 4, false, false, false, false, true, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al (PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al (PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy)
+// Elapsed time: 54 seconds
+selectCodeEditor("net_engine_v1_0_S00_AXIS.v", 212, 76); // ad (net_engine_v1_0_S00_AXIS.v)
+typeControlKey((HResource) null, "net_engine_v1_0_S00_AXIS.v", 'v'); // ad (net_engine_v1_0_S00_AXIS.v)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 02m:58s
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03m:02s
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed Time for: 'L.f': 03m:04s
+// Elapsed Time for: 'L.f': 03m:06s
+// Elapsed time: 16 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, conv_cell (net_engine_v1_0_S00_AXIS.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : xil_defaultlib.net_engine_v1_0_S00_AXIS]", 3, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, conv_cell (net_engine_v1_0_S00_AXIS.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, conv_cell (net_engine_v1_0_S00_AXIS.v)]", 4, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 5, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 5, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 5, false, false, false, false, true, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : xil_defaultlib.net_engine_v1_0_S00_AXIS]", 3, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : xil_defaultlib.net_engine_v1_0_S00_AXIS]", 3, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : xil_defaultlib.net_engine_v1_0_S00_AXIS]", 3, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : xil_defaultlib.net_engine_v1_0_S00_AXIS]", 3, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, conv_cell (net_engine_v1_0_S00_AXIS.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, conv_cell (net_engine_v1_0_S00_AXIS.v)]", 4, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+typeControlKey(null, null, 'z');
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03m:38s
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03m:42s
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 4, false); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0_M00_AXIS (net_engine_v1_0_M00_AXIS.v)]", 4, false, false, false, false, false, true); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE) - Double Click
+// Elapsed Time for: 'L.f': 03m:44s
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, net_engine_v1_0 (net_engine_v1_0.v), net_engine_v1_0_S00_AXIS_inst : net_engine_v1_0_S00_AXIS (net_engine_v1_0_S00_AXIS.v)]", 3); // E (PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE)
+// Elapsed Time for: 'L.f': 03m:46s
+selectCodeEditor("net_engine_v1_0_M00_AXIS.v", 233, 145); // ad (net_engine_v1_0_M00_AXIS.v)
+selectCodeEditor("net_engine_v1_0_M00_AXIS.v", 233, 145); // ad (net_engine_v1_0_M00_AXIS.v)
+typeControlKey((HResource) null, "net_engine_v1_0_M00_AXIS.v", 'v'); // ad (net_engine_v1_0_M00_AXIS.v)
+// TclEventType: PACKAGER_MESSAGE_UPDATE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed Time for: 'L.f': 03m:52s

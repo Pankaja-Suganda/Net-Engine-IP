@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Jun 17 21:53:45 2024
+# Process ID: 16228
+# Current directory: D:/Vivado/Project/net_engine_ip
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18324 D:\Vivado\Project\net_engine_ip\net_engine_ip.xpr
+# Log file: D:/Vivado/Project/net_engine_ip/vivado.log
+# Journal file: D:/Vivado/Project/net_engine_ip\vivado.jou
+# Running On: DESKTOP-RSN2NHS, OS: Windows, CPU Frequency: 2712 MHz, CPU Physical cores: 2, Host memory: 8451 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado/Project/net_engine_ip/net_engine_ip.xpr
+update_compile_order -fileset sources_1
+launch_simulation

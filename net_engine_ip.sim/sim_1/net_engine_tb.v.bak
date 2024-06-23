@@ -7,8 +7,8 @@ module net_engine_v1_0_tb;
     parameter integer C_S00_AXI_ADDR_WIDTH   = 7;
     parameter integer C_S00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_TDATA_WIDTH = 32;
-    parameter integer C_M00_AXIS_START_COUNT = 16;
-    parameter integer C_NET_CELL_COUNT       = 1;
+    parameter integer C_M00_AXIS_START_COUNT = 32;
+    parameter integer C_NET_CELL_COUNT       = 4;
 
     // Signals
     reg s00_axi_aclk;
@@ -54,7 +54,7 @@ module net_engine_v1_0_tb;
     wire completed;
     wire S_WRITE_COMPLETE;
     wire [2:0] status;
-    integer i, k;
+    integer i;
 
     // Instantiate the Unit Under Test (UUT)
     net_engine_v1_0 # (
@@ -101,8 +101,8 @@ module net_engine_v1_0_tb;
         .m00_axis_tlast(m00_axis_tlast),
         .m00_axis_tready(m00_axis_tready),
         .S_WRITE_COMPLETE(S_WRITE_COMPLETE),
-		.DEBUG_WRITE_POINTER(OUT_WRITE_POINTER),
-		.DEBUG_READ_POINTER(OUT_READ_POINTER)
+		.OUT_WRITE_POINTER(OUT_WRITE_POINTER),
+		.OUT_READ_POINTER(OUT_READ_POINTER)
     );
 
     // Clock generation
@@ -189,65 +189,28 @@ module net_engine_v1_0_tb;
 //        axis_slave_write(32'h88888888);
 //        axis_slave_write(32'h99999999);
 //        s00_axis_tvalid = 0;
-        for ( k = 0; k <= 10; k = k + 1) begin
+
         s00_axis_tvalid = 1;
-        
-//        for ( i = 0; i <= (9 + (C_NET_CELL_COUNT - 1) * 3); i = i + 1) begin
-            
-//            //s00_axis_tlast = (i == ((9 + (C_NET_CELL_COUNT - 1) * 3)));
-//            s00_axis_tlast = (i%2==0);
-//            axis_slave_write({i, 24'h0});
-//        end
-        axis_slave_write(32'd0);
-        axis_slave_write(32'd59);
-        axis_slave_write(32'd56);
-        axis_slave_write(32'd58);
-        axis_slave_write(32'd54);
-        axis_slave_write(32'd55);
-        axis_slave_write(32'd56);
-        axis_slave_write(32'd61);
-        axis_slave_write(32'd57);
-        axis_slave_write(32'd52);
-        axis_slave_write(32'd55);
-        axis_slave_write(32'd57);
-        s00_axis_tlast = 1; 
-        axis_slave_write(32'd58);   
-        s00_axis_tlast = 0;    
+        for ( i = 0; i < (C_NET_CELL_COUNT * 9) + 2; i = i + 1) begin
+            axis_slave_write({i, 24'h0});
+        end
         s00_axis_tvalid = 0;
 
         // AXIS Read Sequence (8 data points)
         #200
         m00_axis_tready = 1;
-        // AXIS Read Sequence (8 data points)      
-        #500
         
-        m00_axis_tready = 0;
+        #200
         
-//        // Reset sequence
-        #100;
-//        s00_axi_aresetn  = 0;
-//        s00_axis_aresetn = 0;
-//        m00_axis_aresetn = 0;
-//        #100;
-//        s00_axi_aresetn  = 1;
-//        s00_axis_aresetn = 1;
-//        m00_axis_aresetn = 1;
-                
         s00_axis_tvalid = 1;
-       for ( i = k; i <= (9 + (C_NET_CELL_COUNT - 1) * 3) + k; i = i + 1) begin
-            
-            //s00_axis_tlast = (i == ((9 + (C_NET_CELL_COUNT - 1) * 3)));
-            s00_axis_tlast = (i%3==0);
-            axis_slave_write(i);
+        for ( i = 10; i < (C_NET_CELL_COUNT * 9) + 2 + 10; i = i + 1) begin
+            axis_slave_write({i, 24'h0});
         end
         s00_axis_tvalid = 0;
 
         // AXIS Read Sequence (8 data points)
-        m00_axis_tready = 1;
         #200
-        m00_axis_tready = 0;
-        
-        end
+        m00_axis_tready = 1;
         
         // End simulation
         #100;
@@ -298,7 +261,6 @@ module net_engine_v1_0_tb;
             s00_axis_tlast = 0;
             wait (s00_axis_tready);
             s00_axis_tstrb = 0;
-            s00_axis_tlast = 0;
         end
     endtask
 

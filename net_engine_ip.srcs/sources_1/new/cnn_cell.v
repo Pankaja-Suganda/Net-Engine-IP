@@ -62,6 +62,7 @@ integer sum_i, mul_i;
 // internal registers
 reg [DATA_WIDTH-1:0] sum_reg;
 reg [DATA_WIDTH-1:0] o_data_reg;
+reg [DATA_WIDTH-1:0] o_data_reg_temp;
 reg [DATA_WIDTH-1:0] multiply_reg [(KERNAL_SIZE * KERNAL_SIZE) - 1:0];
 
 // control registers
@@ -103,14 +104,36 @@ always @(posedge C_IN_CLK) begin
     if (C_IN_RST) begin
         o_data_valid_reg <= 0;
     end else begin
-        o_data_reg       <= sum_reg * D_IN_BIAS;
-        o_data_valid_reg <= sum_data_valid;
+        if (C_IN_DATA_VALID) begin
+            o_data_reg       <= sum_reg * D_IN_BIAS;
+            o_data_valid_reg <= sum_data_valid;
+        end else begin
+            o_data_reg       <= 0;
+            o_data_valid_reg <= 0;
+        end
+    end
+end
+
+// bit reversing
+integer i;
+always @(*) begin
+    for (i = 0; i < 4; i = i + 1) begin 
+        o_data_reg_temp[i*8 + 7] = o_data_reg[i*8 + 0];
+        o_data_reg_temp[i*8 + 6] = o_data_reg[i*8 + 1];
+        o_data_reg_temp[i*8 + 5] = o_data_reg[i*8 + 2];
+        o_data_reg_temp[i*8 + 4] = o_data_reg[i*8 + 3];
+        o_data_reg_temp[i*8 + 3] = o_data_reg[i*8 + 4];
+        o_data_reg_temp[i*8 + 2] = o_data_reg[i*8 + 5];
+        o_data_reg_temp[i*8 + 1] = o_data_reg[i*8 + 6];
+        o_data_reg_temp[i*8 + 0] = o_data_reg[i*8 + 7];
     end
 end
 
 // assigning
 assign C_OUT_DATA_VALID = o_data_valid_reg;
-assign C_OUT_DATA       = o_data_reg;
-
+assign C_OUT_DATA       = { o_data_reg_temp[7:0], 
+                            o_data_reg_temp[15:8], 
+                            o_data_reg_temp[23:16], 
+                            o_data_reg_temp[31:24]};
 
 endmodule
