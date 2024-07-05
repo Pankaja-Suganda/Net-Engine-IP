@@ -14,10 +14,11 @@ ECHO is off.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source net_engine_v1_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 471.223 ; gain = 185.371
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 472.152 ; gain = 185.980
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado/Project/ip_repo/net_engine/net_engine_1_0'.
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado/Project/ip_repo/axi_communicator_1_0'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Vivado/Project/ip_repo/axi_communicator_1_0'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/Software/Vivado/2023.2/data/ip'.
 Command: read_checkpoint -auto_incremental -incremental D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/utils_1/imports/synth_1/net_engine_v1_0.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/utils_1/imports/synth_1/net_engine_v1_0.dcp for incremental synthesis
@@ -30,16 +31,20 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 13796
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
+INFO: [Synth 8-7075] Helper process launched with PID 7868
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 930.121 ; gain = 441.457
+Starting Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 931.930 ; gain = 444.645
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'out_control_reg_5', assumed default net type 'wire' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:164]
-WARNING: [Synth 8-11065] parameter 'S_IDLE' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:80]
-WARNING: [Synth 8-11065] parameter 'S_WRITE_FIFO' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:81]
-WARNING: [Synth 8-11065] parameter 'M_IDLE' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:87]
-WARNING: [Synth 8-11065] parameter 'M_INIT_COUNTER' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:88]
-WARNING: [Synth 8-11065] parameter 'M_SEND_STREAM' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:89]
+INFO: [Synth 8-11241] undeclared symbol 'out_control_reg_5', assumed default net type 'wire' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:169]
+WARNING: [Synth 8-11065] parameter 'ASCII_N' becomes localparam in 'net_engine_v1_0_S00_AXI' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:109]
+WARNING: [Synth 8-11065] parameter 'ASCII_E' becomes localparam in 'net_engine_v1_0_S00_AXI' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:110]
+WARNING: [Synth 8-11065] parameter 'ASCII_T' becomes localparam in 'net_engine_v1_0_S00_AXI' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:111]
+WARNING: [Synth 8-11065] parameter 'S_IDLE' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:86]
+WARNING: [Synth 8-11065] parameter 'S_WRITE_FIFO' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:87]
+WARNING: [Synth 8-11065] parameter 'M_IDLE' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:93]
+WARNING: [Synth 8-11065] parameter 'M_INIT_COUNTER' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:94]
+WARNING: [Synth 8-11065] parameter 'M_SEND_STREAM' becomes localparam in 'net_engine_v1_0_S00_AXIS' with formal parameter declaration list [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:95]
 INFO: [Synth 8-6157] synthesizing module 'net_engine_v1_0' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:4]
 INFO: [Synth 8-6157] synthesizing module 'net_engine_v1_0_S00_AXI' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:4]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
@@ -53,142 +58,148 @@ INFO: [Synth 8-6157] synthesizing module 'conv_cell' [D:/Vivado/Project/net_engi
 	Parameter DATA_WIDTH bound to: 32 - type: integer 
 	Parameter KERNAL_SIZE bound to: 3 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'conv_cell' (0#1) [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:22]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:304]
+INFO: [Synth 8-6157] synthesizing module 'maxpooling_cell' [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:23]
+	Parameter DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'maxpooling_cell' (0#1) [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:23]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:404]
 INFO: [Synth 8-6155] done synthesizing module 'net_engine_v1_0_S00_AXIS' (0#1) [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:4]
-WARNING: [Synth 8-7071] port 'D_CNN_NET_OUT' of module 'net_engine_v1_0_S00_AXIS' is unconnected for instance 'net_engine_v1_0_S00_AXIS_inst' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:172]
-WARNING: [Synth 8-7071] port 'D_CNN_NET_VALID_OUT' of module 'net_engine_v1_0_S00_AXIS' is unconnected for instance 'net_engine_v1_0_S00_AXIS_inst' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:172]
-WARNING: [Synth 8-7023] instance 'net_engine_v1_0_S00_AXIS_inst' of module 'net_engine_v1_0_S00_AXIS' has 27 connections declared, but only 25 given [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:172]
+WARNING: [Synth 8-7071] port 'D_CNN_NET_OUT' of module 'net_engine_v1_0_S00_AXIS' is unconnected for instance 'net_engine_v1_0_S00_AXIS_inst' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:171]
+WARNING: [Synth 8-7071] port 'D_CNN_NET_VALID_OUT' of module 'net_engine_v1_0_S00_AXIS' is unconnected for instance 'net_engine_v1_0_S00_AXIS_inst' [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:171]
+WARNING: [Synth 8-7023] instance 'net_engine_v1_0_S00_AXIS_inst' of module 'net_engine_v1_0_S00_AXIS' has 30 connections declared, but only 28 given [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:171]
 INFO: [Synth 8-6155] done synthesizing module 'net_engine_v1_0' (0#1) [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:4]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg0_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:280]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:281]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:282]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg3_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:283]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:284]
-WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:285]
-WARNING: [Synth 8-3848] Net out_bias in module/entity net_engine_v1_0_S00_AXI does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:95]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg0_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:286]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg1_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:287]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg2_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:288]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg3_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:289]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v:290]
+WARNING: [Synth 8-6014] Unused sequential element max_1_2_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:58]
+WARNING: [Synth 8-6014] Unused sequential element max_3_4_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:59]
+WARNING: [Synth 8-6014] Unused sequential element max_5_6_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:60]
+WARNING: [Synth 8-6014] Unused sequential element max_7_8_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:61]
+WARNING: [Synth 8-6014] Unused sequential element max_1_2_3_4_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:73]
+WARNING: [Synth 8-6014] Unused sequential element max_5_6_7_8_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:74]
+WARNING: [Synth 8-6014] Unused sequential element output_valid_reg was removed.  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:90]
+WARNING: [Synth 8-7137] Register output_data_reg in module maxpooling_cell has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v:89]
 WARNING: [Synth 8-3848] Net D_CNN_NET_OUT in module/entity net_engine_v1_0_S00_AXIS does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:41]
 WARNING: [Synth 8-3848] Net D_CNN_NET_VALID_OUT in module/entity net_engine_v1_0_S00_AXIS does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v:42]
-WARNING: [Synth 8-3848] Net OUT_WRITE_POINTER in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:78]
-WARNING: [Synth 8-3848] Net OUT_READ_POINTER in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:79]
-WARNING: [Synth 8-3848] Net in_control_reg_1 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:84]
 WARNING: [Synth 8-3848] Net in_control_reg_2 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:85]
 WARNING: [Synth 8-3848] Net in_control_reg_3 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:86]
 WARNING: [Synth 8-3848] Net in_control_reg_4 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:87]
 WARNING: [Synth 8-3848] Net in_control_reg_5 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:88]
 WARNING: [Synth 8-3848] Net in_control_reg_6 in module/entity net_engine_v1_0 does not have driver. [D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v:89]
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[31] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[30] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[29] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[28] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[27] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[26] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[25] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[24] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[23] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[22] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[21] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[20] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[19] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[18] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[17] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[16] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[15] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[14] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[13] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[12] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[11] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[10] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[9] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[8] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[7] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[6] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[5] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[4] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[3] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[2] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[1] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_OUT[0] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_VALID_OUT[1] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_CNN_NET_VALID_OUT[0] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXIS_TSTRB[3] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXIS_TSTRB[2] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXIS_TSTRB[1] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXIS_TSTRB[0] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[31] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[30] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[29] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[28] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[27] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[26] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[25] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[24] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[23] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[22] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[21] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[20] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[19] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[18] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[17] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[16] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[15] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[14] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[13] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[12] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[11] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[10] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[9] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[8] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[7] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[6] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[5] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[4] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[3] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[2] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[1] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_BIAS[0] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[31] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[30] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[29] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[28] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[27] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[26] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[25] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[24] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[23] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[22] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[21] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[20] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[19] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[18] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[17] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[16] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[15] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[14] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[13] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[12] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[11] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[10] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[9] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[8] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[7] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[6] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[5] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[4] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[3] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
-WARNING: [Synth 8-7129] Port D_IN_KERNAL_1[2] in module net_engine_v1_0_S00_AXIS is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[31] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[30] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[29] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[28] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[27] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[26] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[25] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[24] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[23] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[22] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[21] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[20] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[19] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[18] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[17] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[16] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[15] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[14] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[13] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[12] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[11] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[10] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[9] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[8] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[7] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[6] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[5] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[4] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[3] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[2] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[1] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_1[0] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[31] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[30] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[29] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[28] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[27] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[26] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[25] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[24] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[23] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[22] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[21] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[20] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[19] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[18] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[17] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[16] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[15] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[14] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[13] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[12] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[11] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[10] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[9] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[8] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[7] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[6] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[5] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[4] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[3] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[2] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[1] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_2[0] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[31] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[30] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[29] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[28] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[27] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[26] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[25] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[24] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[23] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[22] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[21] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[20] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[19] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[18] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[17] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[16] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[15] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[14] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[13] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[12] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[11] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[10] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[9] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[8] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[7] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[6] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[5] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[4] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[3] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[2] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[1] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_3[0] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_4[31] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_4[30] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_4[29] in module maxpooling_cell is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D_IN_DATA_4[28] in module maxpooling_cell is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1049.379 ; gain = 560.715
+Finished Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1050.215 ; gain = 562.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1049.379 ; gain = 560.715
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1050.215 ; gain = 562.930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1049.379 ; gain = 560.715
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1050.215 ; gain = 562.930
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-802] inferred FSM for state register 'master_mst_exec_state_reg' in module 'net_engine_v1_0_S00_AXIS'
@@ -201,7 +212,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'master_mst_exec_state_reg' 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'master_mst_exec_state_reg' using encoding 'sequential' in module 'net_engine_v1_0_S00_AXIS'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1052.512 ; gain = 563.848
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1050.215 ; gain = 562.930
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -212,24 +223,54 @@ Detailed RTL Component Info :
 	   9 Input   32 Bit       Adders := 2     
 	   2 Input    5 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 1     
-	   2 Input    1 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 36    
+	               32 Bit    Registers := 41    
 	                7 Bit    Registers := 2     
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 16    
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 18    
 +---Multipliers : 
 	              32x32  Multipliers := 20    
 +---RAMs : 
 	               96 Bit	(12 X 8 bit)          RAMs := 4     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 15    
-	  21 Input   32 Bit        Muxes := 14    
+	   2 Input   32 Bit        Muxes := 19    
+	  20 Input   32 Bit        Muxes := 14    
+	   2 Input   31 Bit        Muxes := 1     
+	   2 Input   30 Bit        Muxes := 1     
+	   2 Input   29 Bit        Muxes := 1     
+	   2 Input   28 Bit        Muxes := 1     
+	   2 Input   27 Bit        Muxes := 1     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
+	   2 Input   23 Bit        Muxes := 1     
+	   2 Input   22 Bit        Muxes := 1     
+	   2 Input   21 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 1     
+	   2 Input   19 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1     
+	   2 Input   15 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 1     
+	   2 Input   13 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
 	   3 Input    2 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 10    
+	   2 Input    2 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 21    
+	  20 Input    1 Bit        Muxes := 1     
 	   3 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -248,28 +289,488 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3917] design net_engine_v1_0 has port m00_axis_tstrb[3] driven by constant 1
-WARNING: [Synth 8-3917] design net_engine_v1_0 has port m00_axis_tstrb[2] driven by constant 1
-WARNING: [Synth 8-3917] design net_engine_v1_0 has port m00_axis_tstrb[1] driven by constant 1
-WARNING: [Synth 8-3917] design net_engine_v1_0 has port m00_axis_tstrb[0] driven by constant 1
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '15' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8]' and it is trimmed from '48' to '17' bits. [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:77]
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0] is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[1].conv_cell_inst/ is absorbed into DSP CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg, operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[1].conv_cell_inst/o_data_reg_reg is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/o_data_reg0, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg0.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg0.
+DSP Report: Generating DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[1].conv_cell_inst/o_data_reg_reg is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[1].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[1].conv_cell_inst/o_data_reg_reg.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0], operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0], operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0] is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: operator CELL_GEN[0].conv_cell_inst/ is absorbed into DSP CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0].
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg, operation Mode is: (A*B)'.
+DSP Report: register CELL_GEN[0].conv_cell_inst/o_data_reg_reg is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/o_data_reg0, operation Mode is: A*B.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg0.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg0.
+DSP Report: Generating DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register CELL_GEN[0].conv_cell_inst/o_data_reg_reg is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+DSP Report: operator CELL_GEN[0].conv_cell_inst/o_data_reg0 is absorbed into DSP CELL_GEN[0].conv_cell_inst/o_data_reg_reg.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[47]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[46]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[45]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[44]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[43]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[42]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[41]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[40]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[39]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[38]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[37]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[36]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[35]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[34]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[33]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[32]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[31]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[30]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[29]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[28]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[27]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[26]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[25]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[24]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[23]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[22]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[21]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[20]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[19]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[18]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[1].conv_cell_inst/o_data_reg_reg[17]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[47]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[46]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[45]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[44]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[43]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[42]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[41]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[40]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[39]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[38]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[37]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[36]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[35]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[34]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[33]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[32]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[31]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[30]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[29]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[28]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[27]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[26]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[25]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[24]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[23]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[22]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[21]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[20]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[19]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[18]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
+WARNING: [Synth 8-3332] Sequential element (CELL_GEN[0].conv_cell_inst/o_data_reg_reg[17]) is unused and will be removed from module net_engine_v1_0_S00_AXIS.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:42 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
+ Sort Area is  CELL_GEN[0].conv_cell_inst/o_data_reg0_15 : 0 0 : 2701 5095 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/o_data_reg0_15 : 0 1 : 2394 5095 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/o_data_reg0_2a : 0 0 : 2701 5095 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/o_data_reg0_2a : 0 1 : 2394 5095 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_0 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_0 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_11 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_11 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_13 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_13 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_5 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_5 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_7 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_7 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_9 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_9 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_b : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_b : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_d : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_d : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_f : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/_f : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_18 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_18 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1a : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1a : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1c : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1c : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1e : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_1e : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_20 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_20 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_22 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_22 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_24 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_24 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_26 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_26 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_28 : 0 0 : 2701 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/_28 : 0 1 : 1770 4471 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[0]_3 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[1]_14 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[2]_12 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[3]_10 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[4]_e : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[5]_c : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[6]_a : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[7]_8 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/multiply_reg_reg[8]_6 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[0].conv_cell_inst/o_data_reg_reg_17 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[0]_19 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[1]_29 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[2]_27 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[3]_25 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[4]_23 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[5]_21 : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[6]_1f : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[7]_1d : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/multiply_reg_reg[8]_1b : 0 0 : 2354 2354 : Used 1 time 0
+ Sort Area is  CELL_GEN[1].conv_cell_inst/o_data_reg_reg_2b : 0 0 : 2354 2354 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Distributed RAM: Preliminary Mapping Report (see note below)
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
-|Module Name     | RTL Object                                                     | Inference | Size (Depth x Width) | Primitives   | 
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[3].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[2].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[1].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[0].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
++------------------------------+----------------------------------+-----------+----------------------+--------------+
+|Module Name                   | RTL Object                       | Inference | Size (Depth x Width) | Primitives   | 
++------------------------------+----------------------------------+-----------+----------------------+--------------+
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[0].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[1].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[2].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[3].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
++------------------------------+----------------------------------+-----------+----------------------+--------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++-------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name              | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'         | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++-------------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -278,21 +779,21 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:43 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 Distributed RAM: Final Mapping Report
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
-|Module Name     | RTL Object                                                     | Inference | Size (Depth x Width) | Primitives   | 
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[3].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[2].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[1].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-|net_engine_v1_0 | net_engine_v1_0_S00_AXIS_inst/FIFO_GEN[0].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
-+----------------+----------------------------------------------------------------+-----------+----------------------+--------------+
++------------------------------+----------------------------------+-----------+----------------------+--------------+
+|Module Name                   | RTL Object                       | Inference | Size (Depth x Width) | Primitives   | 
++------------------------------+----------------------------------+-----------+----------------------+--------------+
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[0].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[1].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[2].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
+|net_engine_v1_0_S00_AXIS_inst | FIFO_GEN[3].stream_data_fifo_reg | Implied   | 16 x 8               | RAM32M x 24  | 
++------------------------------+----------------------------------+-----------+----------------------+--------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -301,7 +802,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:43 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -319,41 +820,108 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:51 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:51 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++-------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name              | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 15     | 15     | -      | -      | 15     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | (A*B)'          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|net_engine_v1_0_S00_AXIS | A*B             | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|net_engine_v1_0_S00_AXIS | (PCIN>>17+A*B)' | 0      | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++-------------------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -366,58 +934,61 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     3|
-|2     |CARRY4   |   144|
-|3     |LUT1     |    13|
-|4     |LUT2     |   320|
-|5     |LUT3     |   267|
-|6     |LUT4     |   249|
-|7     |LUT5     |    86|
-|8     |LUT6     |   143|
-|9     |MUXF7    |    32|
-|10    |RAM32M   |    60|
-|11    |RAM32X1D |    22|
-|12    |FDRE     |  1134|
-|13    |FDSE     |     2|
-|14    |IBUF     |    92|
-|15    |OBUF     |    81|
-|16    |OBUFT    |     6|
+|2     |CARRY4   |   152|
+|3     |DSP48E1  |    60|
+|4     |LUT1     |     5|
+|5     |LUT2     |   320|
+|6     |LUT3     |   254|
+|7     |LUT4     |   316|
+|8     |LUT5     |    86|
+|9     |LUT6     |   178|
+|10    |MUXF7    |    32|
+|11    |RAM32M   |    60|
+|12    |RAM32X1D |    24|
+|13    |FDCE     |    64|
+|14    |FDRE     |   954|
+|15    |FDSE     |     1|
+|16    |IBUF     |    91|
+|17    |OBUF     |   147|
 +------+---------+------+
 
 Report Instance Areas: 
-+------+-------------------------------------+-------------------------+------+
-|      |Instance                             |Module                   |Cells |
-+------+-------------------------------------+-------------------------+------+
-|1     |top                                  |                         |  2654|
-|2     |  net_engine_v1_0_S00_AXIS_inst      |net_engine_v1_0_S00_AXIS |  1715|
-|3     |    \CNN_CELL_GEN[0].conv_cell_inst  |conv_cell                |   789|
-|4     |    \CNN_CELL_GEN[1].conv_cell_inst  |conv_cell_0              |   739|
-|5     |  net_engine_v1_0_S00_AXI_inst       |net_engine_v1_0_S00_AXI  |   757|
-+------+-------------------------------------+-------------------------+------+
++------+---------------------------------------+-------------------------+------+
+|      |Instance                               |Module                   |Cells |
++------+---------------------------------------+-------------------------+------+
+|1     |top                                    |                         |  2747|
+|2     |  net_engine_v1_0_S00_AXIS_inst        |net_engine_v1_0_S00_AXIS |  1749|
+|3     |    \CELL_GEN[0].conv_cell_inst        |conv_cell                |   705|
+|4     |    \CELL_GEN[0].maxpooling_cell_inst  |maxpooling_cell          |   101|
+|5     |    \CELL_GEN[1].conv_cell_inst        |conv_cell_0              |   669|
+|6     |    \CELL_GEN[1].maxpooling_cell_inst  |maxpooling_cell_1        |   104|
+|7     |  net_engine_v1_0_S00_AXI_inst         |net_engine_v1_0_S00_AXI  |   757|
++------+---------------------------------------+-------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 480 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
-Synthesis Optimization Complete : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1253.832 ; gain = 765.168
+Synthesis finished with 0 errors, 0 critical warnings and 813 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:52 . Memory (MB): peak = 1267.414 ; gain = 780.129
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.060 . Memory (MB): peak = 1265.273 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 258 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1272.172 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 328 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1370.250 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1374.375 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 82 instances were transformed.
+  A total of 84 instances were transformed.
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 60 instances
-  RAM32X1D => RAM32X1D (RAMD32(x2)): 22 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 24 instances
 
 The system cannot find the path specified.
-Synth Design complete | Checksum: 19f07515
+Synth Design complete | Checksum: 81d46f2a
 INFO: [Common 17-83] Releasing license: Synthesis
-33 Infos, 130 Warnings, 0 Critical Warnings and 0 Errors encountered.
+34 Infos, 250 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1370.250 ; gain = 890.801
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1370.250 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:57 . Memory (MB): peak = 1374.375 ; gain = 895.027
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1374.375 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Vivado/Project/net_engine_ip/net_engine_ip.runs/synth_1/net_engine_v1_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file net_engine_v1_0_utilization_synth.rpt -pb net_engine_v1_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jun 15 23:35:29 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Jul  3 23:04:05 2024...
