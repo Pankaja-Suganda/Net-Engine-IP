@@ -89,7 +89,7 @@ always @(posedge C_IN_CLK) begin
 end
 
 // sum operation
-always @(*) begin
+always @(posedge C_IN_CLK) begin
     sum_reg = 0;
     for(sum_i = 0; sum_i < (KERNAL_SIZE * KERNAL_SIZE); sum_i = sum_i + 1) begin
         sum_reg = sum_reg + multiply_reg[sum_i];
