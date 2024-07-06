@@ -52,6 +52,7 @@ reg [DATA_WIDTH-1:0] max_pool;
 reg                  output_valid;
 reg [DATA_WIDTH-1:0] output_data;
 reg [DATA_WIDTH-1:0] o_data_reg_temp;
+reg [DATA_WIDTH-1:0] d_in_data_9_temp;
 
 reg first_stage_valid;
 reg second_stage_valid;
@@ -69,7 +70,11 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
         max_3_4 <= (D_IN_DATA_3 > D_IN_DATA_4) ? D_IN_DATA_3 : D_IN_DATA_4;
         max_5_6 <= (D_IN_DATA_5 > D_IN_DATA_6) ? D_IN_DATA_5 : D_IN_DATA_6;
         max_7_8 <= (D_IN_DATA_7 > D_IN_DATA_8) ? D_IN_DATA_7 : D_IN_DATA_8;
+        d_in_data_9_temp <= D_IN_DATA_9;
         first_stage_valid <= 'b1;
+    end
+    else if (second_stage_valid) begin
+        first_stage_valid <= 'b0;
     end
 end
 
@@ -83,6 +88,9 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
         max_1_2_3_4 <= (max_1_2 > max_3_4) ? max_1_2 : max_3_4;
         max_5_6_7_8 <= (max_5_6 > max_7_8) ? max_5_6 : max_7_8;
         second_stage_valid <= 'b1;
+    end
+    else if (output_valid) begin
+        second_stage_valid <= 'b0;
     end
 end
 
@@ -99,10 +107,10 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
         end
 
         // Then calculate the maximum of max_pool and D_IN_DATA_9
-        if (max_pool > D_IN_DATA_9) begin
+        if (max_pool > d_in_data_9_temp) begin
             output_data <= max_pool;
         end else begin
-            output_data <= D_IN_DATA_9;
+            output_data <= d_in_data_9_temp;
         end
         
         output_valid <= 1'b1;

@@ -1,0 +1,2 @@
+master_fifo_out.v,verilog,xil_defaultlib,../../../../net_engine_ip.gen/sources_1/ip/master_fifo_out/sim/master_fifo_out.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

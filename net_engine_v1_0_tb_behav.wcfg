@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="5.371339 us"></ZoomEndTime>
-      <Cursor1Time time="11.235000 us"></Cursor1Time>
+      <ZoomStartTime time="236.666 ns"></ZoomStartTime>
+      <ZoomEndTime time="622.661 ns"></ZoomEndTime>
+      <Cursor1Time time="1,070.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+      <ValueColumnWidth column_width="110"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="54" />
+   <WVObjectSize size="63" />
    <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -235,5 +235,42 @@
    <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/writes_done" type="logic">
       <obj_property name="ElementShortName">writes_done</obj_property>
       <obj_property name="ObjectShortName">writes_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/data_row_count" type="array">
+      <obj_property name="ElementShortName">data_row_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_row_count[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/data_row_count_prev" type="array">
+      <obj_property name="ElementShortName">data_row_count_prev[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_row_count_prev[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/data_row_filled" type="array">
+      <obj_property name="ElementShortName">data_row_filled[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_row_filled[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/data_row_status" type="array">
+      <obj_property name="ElementShortName">data_row_status[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_row_status[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/process_begin" type="logic">
+      <obj_property name="ElementShortName">process_begin</obj_property>
+      <obj_property name="ObjectShortName">process_begin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_1" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_1[0:11][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_1[0:11][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_2" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_2[0:11][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_2[0:11][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_3" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_3[0:11][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_3[0:11][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_4" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_4[0:11][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_4[0:11][31:0]</obj_property>
    </wvobject>
 </wave_config>

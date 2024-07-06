@@ -1,10 +1,11 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../net_engine_ip.gen/sources_1/ip/master_fifo_out/sim/master_fifo_out.v" \
 "../../../../net_engine_ip.srcs/sources_1/new/cnn_cell.v" \
 "../../../../net_engine_ip.srcs/sources_1/new/max_pool_cell.v" \
 "../../../../../ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v" \
 "../../../../../ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v" \
-"../../../../../ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v" \
+"../../../../net_engine_ip.srcs/sources_1/new/net_engine_v1_0_S00_AXI_1.v" \
 "../../net_engine_tb.v" \
 
 # compile glbl module
