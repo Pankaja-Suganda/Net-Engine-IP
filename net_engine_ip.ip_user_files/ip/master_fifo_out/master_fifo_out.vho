@@ -60,11 +60,11 @@ COMPONENT master_fifo_out
     s_axis_tvalid : IN STD_LOGIC;
     s_axis_tready : OUT STD_LOGIC;
     s_axis_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axis_tlast : IN STD_LOGIC;
     m_axis_tvalid : OUT STD_LOGIC;
     m_axis_tready : IN STD_LOGIC;
     m_axis_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    axis_data_count : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-    axis_prog_full : OUT STD_LOGIC 
+    m_axis_tlast : OUT STD_LOGIC 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -82,11 +82,11 @@ your_instance_name : master_fifo_out
     s_axis_tvalid => s_axis_tvalid,
     s_axis_tready => s_axis_tready,
     s_axis_tdata => s_axis_tdata,
+    s_axis_tlast => s_axis_tlast,
     m_axis_tvalid => m_axis_tvalid,
     m_axis_tready => m_axis_tready,
     m_axis_tdata => m_axis_tdata,
-    axis_data_count => axis_data_count,
-    axis_prog_full => axis_prog_full
+    m_axis_tlast => m_axis_tlast
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

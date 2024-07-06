@@ -114,7 +114,6 @@
 	// Process Controlling Variables
 	reg [m_bit_num-1:0] process_pointer;
 	reg                 process_done;
-	wire                out_axis_prog_full;
 	
     reg [3:0] data_row_status;
     reg process_begin;
@@ -188,6 +187,10 @@
     
 	always@(posedge S_AXIS_ACLK)
 	begin
+	  if (writes_done) begin
+        writes_done   <= 1'b0;
+	  end
+	  
 	  if(!S_AXIS_ARESETN)
 	    begin
 	      write_pointer  <= 0;
@@ -219,10 +222,6 @@
 	               data_row_filled <= {data_row_filled[2:0], 1'b1};
 	            end
 	      end  
-//	    if (cell_reset) begin
-//	       write_pointer <= 0;
-//	       writes_done   <= 1'b0;
-//	    end
 	end
 
 	// FIFO write enable generation
@@ -354,7 +353,7 @@
             if (process_pointer == NUMBER_OF_INPUT_WORDS - 3) begin
                 process_pointer <= 0;
                 process_done    <= 1'b1;
-            end else if (process_begin && out_data_valid && !process_done) begin
+            end else if (process_begin && !process_done) begin
                 process_pointer <= process_pointer + 1;                
             end
             else begin
@@ -411,6 +410,25 @@
         .C_OUT_DATA_VALID(CNN_out_data_valid),
         .C_OUT_DATA(CNN_out_data)
     );
+
+    reg process_done_delay_1;
+    reg process_done_delay_2;
+    
+    always @(posedge S_AXIS_ACLK) begin
+        if (!S_AXIS_ARESETN) begin 
+            process_done_delay_1 <= 0;
+            process_done_delay_2 <= 0;
+        end else begin
+            if (process_done) begin
+                process_done_delay_1 <= process_done;
+            end else if (process_done_delay_1) begin
+                process_done_delay_2 <= process_done_delay_1;
+                process_done_delay_1 <= 0;
+            end else begin
+                process_done_delay_2 <= 0;                
+            end
+        end
+    end
     
     master_fifo_out master_fifo_out_ins (
       .wr_rst_busy(),          // output wire wr_rst_busy
@@ -420,11 +438,11 @@
       .s_axis_tvalid(out_data_valid),      // input wire s_axis_tvalid
       .s_axis_tready(),      // output wire s_axis_tready
       .s_axis_tdata(out_data),        // input wire [31 : 0] s_axis_tdata
+      .s_axis_tlast(process_done_delay_2),
       .m_axis_tvalid(M_AXIS_TVALID),      // output wire m_axis_tvalid
       .m_axis_tready(M_AXIS_TREADY),      // input wire m_axis_tready
       .m_axis_tdata(M_AXIS_TDATA),        // output wire [31 : 0] m_axis_tdata
-      .axis_data_count(),  // output wire [4 : 0] axis_data_count
-      .axis_prog_full(out_axis_prog_full)    // output wire axis_prog_full
+      .m_axis_tlast(M_AXIS_TLAST)
     );
     
 	endmodule

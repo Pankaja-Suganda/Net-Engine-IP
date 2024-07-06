@@ -86,10 +86,7 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
-set_property ip_repo_paths {
-  d:/Vivado/Project/ip_repo/net_engine/net_engine_1_0
-  d:/Vivado/Project/ip_repo/axi_communicator_1_0
-} [current_project]
+set_property ip_repo_paths d:/Vivado/Project/ip_repo/net_engine/net_engine_1_0 [current_project]
 update_ip_catalog
 set_property ip_output_repo d:/Vivado/Project/net_engine_ip/net_engine_ip.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
