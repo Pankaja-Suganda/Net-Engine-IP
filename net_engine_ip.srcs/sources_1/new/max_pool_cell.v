@@ -133,10 +133,7 @@ always @(*) begin
         o_data_reg_temp[i*8 + 0] = output_data[i*8 + 7];
     end
 end
-assign C_OUT_DATA       = { o_data_reg_temp[7:0], 
-                            o_data_reg_temp[15:8], 
-                            o_data_reg_temp[23:16], 
-                            o_data_reg_temp[31:24]};
+assign C_OUT_DATA       = o_data_reg_temp;
 assign C_OUT_DATA_VALID = output_valid;
 
 endmodule

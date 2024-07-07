@@ -8,7 +8,7 @@ module net_engine_v1_0_tb;
     parameter integer C_S00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_START_COUNT = 16;
-    parameter integer C_NET_CELL_COUNT       = 10;
+    parameter integer C_NET_CELL_COUNT       = 100;
 
     // Signals
     reg s00_axi_aclk;
@@ -146,141 +146,15 @@ module net_engine_v1_0_tb;
         // Wait for reset to be released
         #100;
 
-        // AXI Slave Write Sequence
-//        axi_slave_write(7'd0, 32'hDEADBEEF);
-//        axi_slave_write(7'd4, 32'hCAFEBABE);
-//        axi_slave_write(7'd8, 32'hF00DBEEF);
-//        axi_slave_write(7'd12, 32'hC0FFEE00);
-//        axi_slave_write(7'd16, 32'hBAADF00D);
-//        axi_slave_write(7'd20, 32'hFACEFEED);
-//        axi_slave_write(7'd24, 32'h12345678);
-//        axi_slave_write(7'd28, 32'h87654321);
-
-        // AXI Slave Read Sequence
-//        axi_slave_read(7'd0);
-//        axi_slave_read(7'd4);
-//        axi_slave_read(7'd8);
-//        axi_slave_read(7'd12);
-//        axi_slave_read(7'd16);
-//        axi_slave_read(7'd20);
-//        axi_slave_read(7'd24);
-//        axi_slave_read(7'd28);
-
-        // AXIS Write Sequence (8 data points)
-//        s00_axis_tvalid = 1;
-//        axis_slave_write(32'hAAAAAAAA);
-//        axis_slave_write(32'hBBBBBBBB);
-//        axis_slave_write(32'hCCCCCCCC);
-//        axis_slave_write(32'hDDDDDDDD);
-//        axis_slave_write(32'hEEEEEEEE);
-//        axis_slave_write(32'hFFFFFFFF);
-//        axis_slave_write(32'h11111111);
-//        axis_slave_write(32'h22222222);
-//        axis_slave_write(32'h33333333);
-//        axis_slave_write(32'h44444444);
-//        axis_slave_write(32'h55555555);
-//        axis_slave_write(32'h66666666);
-//        axis_slave_write(32'h77777777);
-//        axis_slave_write(32'h88888888);
-//        axis_slave_write(32'h99999999);
-//        axis_slave_write(32'h55555555);
-//        axis_slave_write(32'h66666666);
-//        axis_slave_write(32'h77777777);
-//        axis_slave_write(32'h88888888);
-//        axis_slave_write(32'h99999999);
-//        s00_axis_tvalid = 0;
         for ( k = 0; k <= 1; k = k + 1) begin
             s00_axis_tvalid = 1;
             m00_axis_tready = 1;
-            for ( i = 0; i <= 60; i = i + 1) begin
-                
-                //s00_axis_tlast = (i == ((9 + (C_NET_CELL_COUNT - 1) * 3)));
-    //            s00_axis_tlast = (i%2==0);
+            for ( i = 0; i <= 500; i = i + 1) begin;
                 axis_slave_write({24'h0, i});
             end
-//        axis_slave_write(32'd0);
-//        axis_slave_write(32'd59);
-//        axis_slave_write(32'd56);
-//        axis_slave_write(32'd58);
-//        axis_slave_write(32'd54);
-//        axis_slave_write(32'd55);
-//        axis_slave_write(32'd56);
-//        axis_slave_write(32'd61);
-//        axis_slave_write(32'd57);
-//        axis_slave_write(32'd52);
-//        axis_slave_write(32'd55);
-//        axis_slave_write(32'd57);
-//        axis_slave_write(32'd0);
-//        axis_slave_write(32'd0);
-//        axis_slave_write(32'd1);
-//        axis_slave_write(32'd2);
-//        axis_slave_write(32'd3);
-//        axis_slave_write(32'd6);
-//        axis_slave_write(32'd7);
-//        axis_slave_write(32'd8);
-//        axis_slave_write(32'd9);
-//        axis_slave_write(32'd12);
-//        axis_slave_write(32'd13);
-//        axis_slave_write(32'd14);
-//        s00_axis_tlast = 1; 
-//        axis_slave_write(32'd15); 
-//        s00_axis_tlast = 0;    
-//        s00_axis_tvalid = 0;
-
-//        // AXIS Read Sequence (8 data points)
-//        #200
-//        m00_axis_tready = 1;
-//        // AXIS Read Sequence (8 data points)      
-//        #500
-        
-//        m00_axis_tready = 0;
-        
-//        // Reset sequence
-//        #100;
-//        s00_axis_tvalid = 1;
-//        axis_slave_write(32'd0);
-//        axis_slave_write(32'd2);
-//        axis_slave_write(32'd3);
-//        axis_slave_write(32'd4);
-//        axis_slave_write(32'd5);
-//        axis_slave_write(32'd8);
-//        axis_slave_write(32'd9);
-//        axis_slave_write(32'd10);
-//        axis_slave_write(32'd11);
-//        axis_slave_write(32'd14);
-//        axis_slave_write(32'd15);
-//        axis_slave_write(32'd16);
-//        s00_axis_tlast = 1; 
-//        axis_slave_write(32'd17);  
-//        s00_axis_tlast = 0;    
-//        s00_axis_tvalid = 0;
-
-//        s00_axi_aresetn  = 0;
-//        s00_axis_aresetn = 0;
-//        m00_axis_aresetn = 0;
-//        #100;
-//        s00_axi_aresetn  = 1;
-//        s00_axis_aresetn = 1;
-//        m00_axis_aresetn = 1;
-                
-//        s00_axis_tvalid = 1;
-//       for ( i = k; i <= (9 + (C_NET_CELL_COUNT - 1) * 3) + k; i = i + 1) begin
-            
-//            //s00_axis_tlast = (i == ((9 + (C_NET_CELL_COUNT - 1) * 3)));
-//            s00_axis_tlast = (i%3==0);
-//            axis_slave_write(i);
-//        end
-//        s00_axis_tvalid = 0;
-
-        // AXIS Read Sequence (8 data points)
-//        m00_axis_tready = 1;
-//        #200
-        m00_axis_tready = 0;
-        
+            m00_axis_tready = 0;
         end
         
-        // End simulation
-        #100;
         $stop;
     end
 

@@ -115,6 +115,10 @@
 	reg [m_bit_num-1:0] process_pointer;
 	reg                 process_done;
 	
+	//  master control wires
+	wire m_axis_tvalid_temp;
+    wire out_data_valid_mready;
+	
     reg [3:0] data_row_status;
     reg process_begin;
     
@@ -353,7 +357,7 @@
             if (process_pointer == NUMBER_OF_INPUT_WORDS - 3) begin
                 process_pointer <= 0;
                 process_done    <= 1'b1;
-            end else if (process_begin && !process_done) begin
+            end else if (process_begin && M_AXIS_TREADY && !process_done) begin
                 process_pointer <= process_pointer + 1;                
             end
             else begin
@@ -431,18 +435,21 @@
     end
     
     master_fifo_out master_fifo_out_ins (
-      .wr_rst_busy(),          // output wire wr_rst_busy
-      .rd_rst_busy(),          // output wire rd_rst_busy
+      .wr_rst_busy(),                          // output wire wr_rst_busy
+      .rd_rst_busy(),                          // output wire rd_rst_busy
       .s_aclk(S_AXIS_ACLK),                    // input wire s_aclk
       .s_aresetn(S_AXIS_ARESETN),              // input wire s_aresetn
-      .s_axis_tvalid(out_data_valid),      // input wire s_axis_tvalid
-      .s_axis_tready(),      // output wire s_axis_tready
-      .s_axis_tdata(out_data),        // input wire [31 : 0] s_axis_tdata
-      .s_axis_tlast(process_done_delay_2),
-      .m_axis_tvalid(M_AXIS_TVALID),      // output wire m_axis_tvalid
-      .m_axis_tready(M_AXIS_TREADY),      // input wire m_axis_tready
-      .m_axis_tdata(M_AXIS_TDATA),        // output wire [31 : 0] m_axis_tdata
-      .m_axis_tlast(M_AXIS_TLAST)
+      .s_axis_tvalid(out_data_valid_mready),   // input wire s_axis_tvalid
+      .s_axis_tready(),                        // output wire s_axis_tready
+      .s_axis_tdata(out_data),                 // input wire [31 : 0] s_axis_tdata
+      .s_axis_tlast(process_done_delay_2),     // last data slave
+      .m_axis_tvalid(m_axis_tvalid_temp),      // output wire m_axis_tvalid
+      .m_axis_tready(M_AXIS_TREADY),           // input wire m_axis_tready
+      .m_axis_tdata(M_AXIS_TDATA),             // output wire [31 : 0] m_axis_tdata
+      .m_axis_tlast(M_AXIS_TLAST)              // last data master
     );
+    
+    assign out_data_valid_mready = M_AXIS_TREADY && out_data_valid;
+    assign M_AXIS_TVALID         = M_AXIS_TREADY && m_axis_tvalid_temp;
     
 	endmodule

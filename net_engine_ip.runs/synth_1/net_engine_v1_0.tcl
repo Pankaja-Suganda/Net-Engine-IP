@@ -77,15 +77,14 @@ create_project -in_memory -part xc7z020clg400-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Vivado/Project/net_engine_ip/net_engine_ip.cache/wt [current_project]
 set_property parent.project_path D:/Vivado/Project/net_engine_ip/net_engine_ip.xpr [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part tul.com.tw:pynq-z2:part0:1.0 [current_project]
-set_property ip_repo_paths {
-  d:/Vivado/Project/ip_repo/net_engine/net_engine_1_0
-  d:/Vivado/Project/ip_repo/axi_communicator_1_0
-} [current_project]
+set_property ip_repo_paths d:/Vivado/Project/ip_repo/net_engine/net_engine_1_0 [current_project]
 update_ip_catalog
 set_property ip_output_repo d:/Vivado/Project/net_engine_ip/net_engine_ip.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -95,9 +94,13 @@ read_verilog -library xil_defaultlib {
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v
-  D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXIS.v
+  D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/net_engine_v1_0_S00_AXIS_1.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v
 }
+read_ip -quiet d:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/ip/master_fifo_out_1/master_fifo_out.xci
+set_property used_in_implementation false [get_files -all d:/Vivado/Project/net_engine_ip/net_engine_ip.gen/sources_1/ip/master_fifo_out_1/master_fifo_out.xdc]
+set_property used_in_implementation false [get_files -all d:/Vivado/Project/net_engine_ip/net_engine_ip.gen/sources_1/ip/master_fifo_out_1/master_fifo_out_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
