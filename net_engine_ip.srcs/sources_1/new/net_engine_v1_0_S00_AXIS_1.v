@@ -182,9 +182,9 @@
 	// 
 	// The example design sink is always ready to accept the S_AXIS_TDATA  until
 	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS number of input words.
-	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && (write_pointer <= NUMBER_OF_INPUT_WORDS-1) && !process_begin && !M_AXIS_TVALID);
-
-    reg [3:0] data_row_count;
+	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && !process_begin && !M_AXIS_TVALID&& (write_pointer <= NUMBER_OF_INPUT_WORDS-1)) ;
+ 
+    reg [15:0] data_row_count;
     reg [3:0] data_row_count_prev;
     reg [3:0] data_row_filled;
     reg [3:0] data_row_filled_copy;
@@ -229,11 +229,11 @@
 	end
 
 	// FIFO write enable generation
-	assign fifo_wren = S_AXIS_TVALID && axis_tready;
+	assign fifo_wren = S_AXIS_TVALID && axis_tready;// && !process_begin;// && (!M_AXIS_TVALID && !M_AXIS_TREADY);
     
     
 	// FIFO Implementation
-	always @( posedge S_AXIS_ACLK ) begin
+	always @( negedge S_AXIS_ACLK ) begin
        if (fifo_wren) begin
         case (data_row_filled)
           4'b0000: begin

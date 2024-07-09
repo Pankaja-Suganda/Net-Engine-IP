@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="5.371339 us"></ZoomEndTime>
-      <Cursor1Time time="11.235000 us"></Cursor1Time>
+      <ZoomEndTime time="9.000001 us"></ZoomEndTime>
+      <Cursor1Time time="9.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="255"></NameColumnWidth>
-      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+      <NameColumnWidth column_width="328"></NameColumnWidth>
+      <ValueColumnWidth column_width="137"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="54" />
+   <WVObjectSize size="51" />
    <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
@@ -212,28 +212,17 @@
       <obj_property name="ElementShortName">C_NET_CELL_COUNT[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_NET_CELL_COUNT[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/tx_en" type="logic">
-      <obj_property name="ElementShortName">tx_en</obj_property>
-      <obj_property name="ObjectShortName">tx_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/tx_done" type="logic">
-      <obj_property name="ElementShortName">tx_done</obj_property>
-      <obj_property name="ObjectShortName">tx_done</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/CNN_out_data_valid" type="array">
-      <obj_property name="ElementShortName">CNN_out_data_valid[1:0]</obj_property>
-      <obj_property name="ObjectShortName">CNN_out_data_valid[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/process_completed" type="logic">
-      <obj_property name="ElementShortName">process_completed</obj_property>
-      <obj_property name="ObjectShortName">process_completed</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/cell_reset" type="logic">
-      <obj_property name="ElementShortName">cell_reset</obj_property>
-      <obj_property name="ObjectShortName">cell_reset</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/CNN_out_data_valid" type="logic">
+      <obj_property name="ElementShortName">CNN_out_data_valid</obj_property>
+      <obj_property name="ObjectShortName">CNN_out_data_valid</obj_property>
    </wvobject>
    <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/writes_done" type="logic">
       <obj_property name="ElementShortName">writes_done</obj_property>
       <obj_property name="ObjectShortName">writes_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXI_inst/slv_reg5" type="array">
+      <obj_property name="ElementShortName">slv_reg5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_reg5[31:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
    </wvobject>
 </wave_config>

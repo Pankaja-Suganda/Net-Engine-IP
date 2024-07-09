@@ -1,7 +1,7 @@
 Vivado Simulator v2023.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: D:/Vivado/Software/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_9 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot net_engine_v1_0_tb_behav xil_defaultlib.net_engine_v1_0_tb xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Vivado/Software/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L fifo_generator_v13_2_9 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot net_engine_v1_0_tb_1_behav xil_defaultlib.net_engine_v1_0_tb_1 xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -19,6 +19,9 @@ Compiling module fifo_generator_v13_2_9.fifo_generator_vlog_beh(C_COMMON...
 Compiling module xil_defaultlib.master_fifo_out
 Compiling module xil_defaultlib.net_engine_v1_0_S00_AXIS_1(C_NET...
 Compiling module xil_defaultlib.net_engine_v1_0(C_M00_AXIS_START...
-Compiling module xil_defaultlib.net_engine_v1_0_tb
+Compiling module xil_defaultlib.net_engine_v1_0_tb_1
+WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 177. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 186. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 197. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot net_engine_v1_0_tb_behav
+Built simulation snapshot net_engine_v1_0_tb_1_behav

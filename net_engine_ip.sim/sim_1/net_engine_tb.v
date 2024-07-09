@@ -145,13 +145,15 @@ module net_engine_v1_0_tb;
 
         // Wait for reset to be released
         #100;
-
-        for ( k = 0; k <= 1; k = k + 1) begin
+//        m00_axis_tready = 1;
+        for ( k = 0; k <= 10; k = k + 1) begin
             s00_axis_tvalid = 1;
-            m00_axis_tready = 1;
-            for ( i = 0; i <= 500; i = i + 1) begin;
+            for ( i = 0; i <= 100; i = i + 1) begin;
                 axis_slave_write({24'h0, i});
             end
+            s00_axis_tvalid = 0;
+            m00_axis_tready = 1;
+            #1000;
             m00_axis_tready = 0;
         end
         
