@@ -28,7 +28,7 @@ module net_engine_v1_0_tb_1();
     parameter integer C_S00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_TDATA_WIDTH = 32;
     parameter integer C_M00_AXIS_START_COUNT = 16;
-    parameter integer C_NET_CELL_COUNT       = 512;
+    parameter integer C_NET_CELL_COUNT       = 100;
 
     // Signals
     reg s00_axi_aclk;
@@ -136,6 +136,7 @@ module net_engine_v1_0_tb_1();
     integer sentSize;
     integer receiveSize;
     integer row;
+    integer j;
     initial begin
         // Initialize Inputs
         s00_axi_aclk = 0;
@@ -171,59 +172,85 @@ module net_engine_v1_0_tb_1();
         
         done = 0;
 
-        ifile = $fopen("lena_gray.bmp", "rb");
-        ofile = $fopen("lena_gray_o.bmp", "wb");
-        for(i=0;i<1080;i=i+1) begin
-            $fscanf(ifile,"%c",imgData);
-            $fwrite(ofile,"%c",imgData);
-        end
-        // Wait for reset to be released
-        #100;
+        ofile = $fopen("test.txt", "wb");
+        
         m00_axis_tready = 1;
+        #100;
         s00_axis_tvalid = 1;
-        // first 300 data
-        for ( k = 0; k <= 3*512; k = k + 1) begin
-            $fscanf(ifile,"%c",imgData);
-            axis_slave_write({24'h0, imgData});    
-        end
-        sentSize = 3 * 512;
-        @(posedge s00_axis_aclk);
-        s00_axis_tvalid = 0;
         
-        while(sentSize < (512*512)) begin
-            @(posedge S_WRITE_COMPLETE);
-            s00_axis_tvalid = 1;
-            for ( k = 0; k <= 512; k = k + 1) begin
-                $fscanf(ifile,"%c",imgData);
-                axis_slave_write({24'h0, imgData});    
+//        axis_slave_write({32'b0});
+        for(j=0;j<11;j=j+1) begin
+            for(i=0;i<11;i=i+1) begin
+                axis_slave_write({24'b0, i});     
             end
-            s00_axis_tvalid = 0;
-            sentSize = sentSize + 512;
-            row = row + 1;
+            if (j > 3) begin
+                @(posedge S_WRITE_COMPLETE);
+            end
         end
+        m00_axis_tready = 0;
+        s00_axis_tvalid = 0;
+        done = 1;
         
-        @(posedge s00_axis_aclk);
-        @(posedge S_WRITE_COMPLETE);
-//        for ( k = 0; k <= 512; k = k + 1) begin
-//            axis_slave_write({24'h0, 0});    
+    end
+        
+
+//        ifile = $fopen("lena_gray.bmp", "rb");
+//        ofile = $fopen("test.txt", "wb");
+//        for(i=0;i<1080;i=i+1) begin
+//            $fscanf(ifile,"%c",imgData);
+//            $fwrite(ofile,"%c",imgData);
 //        end
-        @(posedge s00_axis_aclk);
+//        // Wait for reset to be released
+//        #100;
+//        m00_axis_tready = 1;
+//        s00_axis_tvalid = 1;
+//        // first 300 data
+//        for ( k = 0; k <= 3*512; k = k + 1) begin
+//            $fscanf(ifile,"%c",imgData);
+//            axis_slave_write({24'h0, imgData});    
+//        end
+//        sentSize = 3 * 512;
+//        @(posedge s00_axis_aclk);
+//        s00_axis_tvalid = 0;
         
-//        for ( k = 0; k <= 5; k = k + 1) begin
+//        while(sentSize < (512*512)) begin
+//            @(posedge S_WRITE_COMPLETE);
 //            s00_axis_tvalid = 1;
-//            for ( i = 0; i < 100; i = i + 1) begin;
-//                axis_slave_write({24'h0, i});
+//            for ( k = 0; k <= 512; k = k + 1) begin
+//                $fscanf(ifile,"%c",imgData);
+//                axis_slave_write({24'h0, imgData});    
 //            end
 //            s00_axis_tvalid = 0;
+//            sentSize = sentSize + 512;
+//            row = row + 1;
 //        end
-        m00_axis_tready = 0;
-        done = 1;
-        $fclose(ifile);
-    end
+        
+//        @(posedge s00_axis_aclk);
+//        @(posedge S_WRITE_COMPLETE);
+////        for ( k = 0; k <= 512; k = k + 1) begin
+////            axis_slave_write({24'h0, 0});    
+////        end
+//        @(posedge s00_axis_aclk);
+        
+////        for ( k = 0; k <= 5; k = k + 1) begin
+////            s00_axis_tvalid = 1;
+////            for ( i = 0; i < 100; i = i + 1) begin;
+////                axis_slave_write({24'h0, i});
+////            end
+////            s00_axis_tvalid = 0;
+////        end
+//        m00_axis_tready = 0;
+//        done = 1;
+//        $fclose(ifile);
+//    end
 
     always @(posedge s00_axis_aclk) begin
         if (m00_axis_tvalid) begin
-            $fwrite(ofile, "%c", m00_axis_tdata);
+            $fwrite(ofile, "%c%c%c%c", 
+                m00_axis_tdata[31:24], 
+                m00_axis_tdata[23:16], 
+                m00_axis_tdata[15:8], 
+                m00_axis_tdata[7:0]);
             receiveSize = receiveSize + 1;
         end
         if(done) begin 
@@ -236,11 +263,11 @@ module net_engine_v1_0_tb_1();
     task axis_slave_write(input [C_S00_AXIS_TDATA_WIDTH-1:0] data);
         begin
             @(posedge s00_axis_aclk);
-            wait (s00_axis_tready);
+//            wait (s00_axis_tready);
             s00_axis_tdata = data;
             s00_axis_tstrb = 4'b1111;
             s00_axis_tlast = 0;
-//            wait (s00_axis_tready);
+            wait (s00_axis_tready);
             s00_axis_tstrb = 0;
             s00_axis_tlast = 0;
         end

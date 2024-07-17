@@ -1,16 +1,4 @@
 Time resolution is 1 ps
-Stopped at time : 5258285 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 205
-Stopped at time : 5263395 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 210
-Stopped at time : 5263405 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 221
-Stopped at time : 5263405 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 225
-$stop called at time : 5263405 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 231
-Stopped at time : 5263415 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 225
-WARNING: File/Multi-channel descriptor (-19999) passed to $fclose in file D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v at line 230 is not valid.
-$stop called at time : 5263415 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 231
-Stopped at time : 5263425 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 225
-WARNING: File/Multi-channel descriptor (-19999) passed to $fclose in file D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v at line 230 is not valid.
-$stop called at time : 5263425 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 231
-Stopped at time : 5263435 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 225
-WARNING: File/Multi-channel descriptor (-19999) passed to $fclose in file D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v at line 230 is not valid.
-$stop called at time : 5263435 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 231
-INFO: xsimkernel Simulation Memory Usage: 16668 KB (Peak: 16668 KB), Simulation CPU Usage: 14718 ms
+Stopped at time : 0 fs : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 142
+Stopped at time : 100 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 173
+$stop called at time : 2575 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 258

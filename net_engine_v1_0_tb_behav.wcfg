@@ -3,226 +3,310 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="net_engine_v1_0_tb_behav.wdb" id="1">
+      <db_ref path="net_engine_v1_0_tb_1_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="net_engine_v1_0_tb" />
+            <top_module name="net_engine_v1_0_tb_1" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="9.000001 us"></ZoomEndTime>
-      <Cursor1Time time="9.000000 us"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="4,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="4,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="328"></NameColumnWidth>
-      <ValueColumnWidth column_width="137"></ValueColumnWidth>
+      <ValueColumnWidth column_width="133"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="51" />
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_aclk" type="logic">
+   <WVObjectSize size="72" />
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axi_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_aresetn" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_aresetn" type="logic">
       <obj_property name="ElementShortName">s00_axi_aresetn</obj_property>
       <obj_property name="ObjectShortName">s00_axi_aresetn</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_awaddr" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_awaddr" type="array">
       <obj_property name="ElementShortName">s00_axi_awaddr[6:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awaddr[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_awprot" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_awprot" type="array">
       <obj_property name="ElementShortName">s00_axi_awprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awprot[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_awvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_awvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_awvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_awready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_awready" type="logic">
       <obj_property name="ElementShortName">s00_axi_awready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_awready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_wdata" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_wdata" type="array">
       <obj_property name="ElementShortName">s00_axi_wdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_wstrb" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_wstrb" type="array">
       <obj_property name="ElementShortName">s00_axi_wstrb[3:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_wvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_wvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_wvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_wready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_wready" type="logic">
       <obj_property name="ElementShortName">s00_axi_wready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_wready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_bresp" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_bresp" type="array">
       <obj_property name="ElementShortName">s00_axi_bresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bresp[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_bvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_bvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_bvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_bready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_bready" type="logic">
       <obj_property name="ElementShortName">s00_axi_bready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_araddr" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_araddr" type="array">
       <obj_property name="ElementShortName">s00_axi_araddr[6:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_araddr[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_arprot" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_arprot" type="array">
       <obj_property name="ElementShortName">s00_axi_arprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arprot[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_arvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_arvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_arvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_arready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_arready" type="logic">
       <obj_property name="ElementShortName">s00_axi_arready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_arready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_rdata" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_rdata" type="array">
       <obj_property name="ElementShortName">s00_axi_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_rresp" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_rresp" type="array">
       <obj_property name="ElementShortName">s00_axi_rresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rresp[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_rvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_rvalid" type="logic">
       <obj_property name="ElementShortName">s00_axi_rvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axi_rready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axi_rready" type="logic">
       <obj_property name="ElementShortName">s00_axi_rready</obj_property>
       <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_aclk" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">s00_axis_aclk</obj_property>
       <obj_property name="ObjectShortName">s00_axis_aclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_aresetn" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_aresetn" type="logic">
       <obj_property name="ElementShortName">s00_axis_aresetn</obj_property>
       <obj_property name="ObjectShortName">s00_axis_aresetn</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_tready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_tready" type="logic">
       <obj_property name="ElementShortName">s00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_tdata" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_tdata" type="array">
       <obj_property name="ElementShortName">s00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_tstrb" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">s00_axis_tstrb[3:0]</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_tlast" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">s00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tlast</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/s00_axis_tvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/s00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">s00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">s00_axis_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_aclk" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_aclk" type="logic">
       <obj_property name="ElementShortName">m00_axis_aclk</obj_property>
       <obj_property name="ObjectShortName">m00_axis_aclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_aresetn" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_aresetn" type="logic">
       <obj_property name="ElementShortName">m00_axis_aresetn</obj_property>
       <obj_property name="ObjectShortName">m00_axis_aresetn</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_tvalid" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_tvalid" type="logic">
       <obj_property name="ElementShortName">m00_axis_tvalid</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_tdata" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_tdata" type="array">
       <obj_property name="ElementShortName">m00_axis_tdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_tstrb" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_tstrb" type="array">
       <obj_property name="ElementShortName">m00_axis_tstrb[3:0]</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_tlast" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_tlast" type="logic">
       <obj_property name="ElementShortName">m00_axis_tlast</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tlast</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/m00_axis_tready" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/m00_axis_tready" type="logic">
       <obj_property name="ElementShortName">m00_axis_tready</obj_property>
       <obj_property name="ObjectShortName">m00_axis_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/OUT_READ_POINTER" type="array">
-      <obj_property name="ElementShortName">OUT_READ_POINTER[31:0]</obj_property>
-      <obj_property name="ObjectShortName">OUT_READ_POINTER[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/OUT_WRITE_POINTER" type="array">
-      <obj_property name="ElementShortName">OUT_WRITE_POINTER[31:0]</obj_property>
-      <obj_property name="ObjectShortName">OUT_WRITE_POINTER[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/completed" type="logic">
-      <obj_property name="ElementShortName">completed</obj_property>
-      <obj_property name="ObjectShortName">completed</obj_property>
-   </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/S_WRITE_COMPLETE" type="logic">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/S_WRITE_COMPLETE" type="logic">
       <obj_property name="ElementShortName">S_WRITE_COMPLETE</obj_property>
       <obj_property name="ObjectShortName">S_WRITE_COMPLETE</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/status" type="array">
-      <obj_property name="ElementShortName">status[2:0]</obj_property>
-      <obj_property name="ObjectShortName">status[2:0]</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/DEBUG_READ_POINTER" type="array">
+      <obj_property name="ElementShortName">DEBUG_READ_POINTER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEBUG_READ_POINTER[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/DEBUG_WRITE_POINTER" type="array">
+      <obj_property name="ElementShortName">DEBUG_WRITE_POINTER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEBUG_WRITE_POINTER[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/k" type="array">
-      <obj_property name="ElementShortName">k[31:0]</obj_property>
-      <obj_property name="ObjectShortName">k[31:0]</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_1" type="array">
+      <obj_property name="ElementShortName">in_control_reg_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_1[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_S00_AXI_DATA_WIDTH" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_2" type="array">
+      <obj_property name="ElementShortName">in_control_reg_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_3" type="array">
+      <obj_property name="ElementShortName">in_control_reg_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_4" type="array">
+      <obj_property name="ElementShortName">in_control_reg_4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_5" type="array">
+      <obj_property name="ElementShortName">in_control_reg_5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/in_control_reg_6" type="array">
+      <obj_property name="ElementShortName">in_control_reg_6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_control_reg_6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_control_reg_1" type="array">
+      <obj_property name="ElementShortName">out_control_reg_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_control_reg_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_control_reg_2" type="array">
+      <obj_property name="ElementShortName">out_control_reg_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_control_reg_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_control_reg_3" type="array">
+      <obj_property name="ElementShortName">out_control_reg_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_control_reg_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_control_reg_4" type="array">
+      <obj_property name="ElementShortName">out_control_reg_4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_control_reg_4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_1" type="array">
+      <obj_property name="ElementShortName">out_kernal_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_2" type="array">
+      <obj_property name="ElementShortName">out_kernal_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_3" type="array">
+      <obj_property name="ElementShortName">out_kernal_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_4" type="array">
+      <obj_property name="ElementShortName">out_kernal_4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_5" type="array">
+      <obj_property name="ElementShortName">out_kernal_5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_6" type="array">
+      <obj_property name="ElementShortName">out_kernal_6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_7" type="array">
+      <obj_property name="ElementShortName">out_kernal_7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_7[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_8" type="array">
+      <obj_property name="ElementShortName">out_kernal_8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_8[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_kernal_9" type="array">
+      <obj_property name="ElementShortName">out_kernal_9[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_kernal_9[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/out_bias" type="array">
+      <obj_property name="ElementShortName">out_bias[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_bias[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/DEBUG_M_C" type="logic">
+      <obj_property name="ElementShortName">DEBUG_M_C</obj_property>
+      <obj_property name="ObjectShortName">DEBUG_M_C</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/DEBUG_S_C" type="logic">
+      <obj_property name="ElementShortName">DEBUG_S_C</obj_property>
+      <obj_property name="ObjectShortName">DEBUG_S_C</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/SOFT_NRESET_SIGNAL" type="logic">
+      <obj_property name="ElementShortName">SOFT_NRESET_SIGNAL</obj_property>
+      <obj_property name="ObjectShortName">SOFT_NRESET_SIGNAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_S00_AXI_DATA_WIDTH" type="array">
       <obj_property name="ElementShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_S00_AXI_ADDR_WIDTH" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_S00_AXI_ADDR_WIDTH" type="array">
       <obj_property name="ElementShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_S00_AXIS_TDATA_WIDTH" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_S00_AXIS_TDATA_WIDTH" type="array">
       <obj_property name="ElementShortName">C_S00_AXIS_TDATA_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_S00_AXIS_TDATA_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_M00_AXIS_TDATA_WIDTH" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_M00_AXIS_TDATA_WIDTH" type="array">
       <obj_property name="ElementShortName">C_M00_AXIS_TDATA_WIDTH[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_M00_AXIS_TDATA_WIDTH[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_M00_AXIS_START_COUNT" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_M00_AXIS_START_COUNT" type="array">
       <obj_property name="ElementShortName">C_M00_AXIS_START_COUNT[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_M00_AXIS_START_COUNT[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/C_NET_CELL_COUNT" type="array">
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/C_NET_CELL_COUNT" type="array">
       <obj_property name="ElementShortName">C_NET_CELL_COUNT[31:0]</obj_property>
       <obj_property name="ObjectShortName">C_NET_CELL_COUNT[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/CNN_out_data_valid" type="logic">
-      <obj_property name="ElementShortName">CNN_out_data_valid</obj_property>
-      <obj_property name="ObjectShortName">CNN_out_data_valid</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/P_DATA_PER_CELL" type="array">
+      <obj_property name="ElementShortName">P_DATA_PER_CELL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">P_DATA_PER_CELL[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXIS_inst/writes_done" type="logic">
-      <obj_property name="ElementShortName">writes_done</obj_property>
-      <obj_property name="ObjectShortName">writes_done</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_1" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_1[0:511][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_1[0:511][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/net_engine_v1_0_tb/uut/net_engine_v1_0_S00_AXI_inst/slv_reg5" type="array">
-      <obj_property name="ElementShortName">slv_reg5[31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg5[31:0]</obj_property>
-      <obj_property name="Radix">ASCIIRADIX</obj_property>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_2" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_2[0:511][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_2[0:511][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_3" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_3[0:511][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_3[0:511][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/net_engine_v1_0_tb_1/uut/net_engine_v1_0_S00_AXIS_inst/row_data_fifo_4" type="array">
+      <obj_property name="ElementShortName">row_data_fifo_4[0:511][31:0]</obj_property>
+      <obj_property name="ObjectShortName">row_data_fifo_4[0:511][31:0]</obj_property>
    </wvobject>
 </wave_config>

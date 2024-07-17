@@ -53,6 +53,8 @@
 		
 		// input configuration 
 		input wire [C_S_AXIS_TDATA_WIDTH-1 : 0]    CELL_SELECT_CONFIG,  // cell select register
+		input wire [C_S_AXIS_TDATA_WIDTH-1 : 0]    CONFIG_ROW_WIDTH,    // config Row width
+		input wire                                 SOFT_NRESET_SIGNAL,  // internal reset
 		// IP status
 		output wire [C_S_AXIS_TDATA_WIDTH-1 : 0] D_STATUS_1,
 		output wire [C_S_AXIS_TDATA_WIDTH-1 : 0] D_STATUS_2,
@@ -117,7 +119,7 @@
 	
 	//  master control wires
 	wire m_axis_tvalid_temp;
-    wire out_data_valid_mready;
+    reg out_data_valid_mready;
 	
     reg [3:0] data_row_status;
     reg process_begin;
@@ -127,6 +129,8 @@
     reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_2 [0 : NUMBER_OF_INPUT_WORDS-1];
     reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_3 [0 : NUMBER_OF_INPUT_WORDS-1];
     reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_4 [0 : NUMBER_OF_INPUT_WORDS-1];
+    
+    reg [C_S_AXIS_TDATA_WIDTH-1 : 0]   config_out_row_count;
 	
 	// I/O Connections assignments
 	// AXIS Slave assignments
@@ -138,6 +142,11 @@
 	assign D_STATUS_1 = {data_row_filled, data_row_filled, data_row_count, 12'b0};
 	
 	assign D_OUT_READ_POINTER  = process_pointer;
+	
+	// soft config row width
+	always @(posedge S_AXIS_ACLK) begin
+        config_out_row_count <= 'd10;//CONFIG_ROW_WIDTH;
+	end 
 	
 	// AXIS Slave control
 	// Control state machine implementation
@@ -181,21 +190,21 @@
 	// AXI Streaming Sink 
 	// 
 	// The example design sink is always ready to accept the S_AXIS_TDATA  until
-	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS number of input words.
-	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && !process_begin && !M_AXIS_TVALID&& (write_pointer <= NUMBER_OF_INPUT_WORDS-1)) ;
+	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS/ config_out_row_count number of input words.
+	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && !process_begin && !M_AXIS_TVALID && (write_pointer <= config_out_row_count - 1)) ;
  
     reg [15:0] data_row_count;
     reg [3:0] data_row_count_prev;
     reg [3:0] data_row_filled;
     reg [3:0] data_row_filled_copy;
     
-	always@(posedge S_AXIS_ACLK)
+	always@(negedge S_AXIS_ACLK)
 	begin
 	  if (writes_done) begin
         writes_done   <= 1'b0;
 	  end
 	  
-	  if(!S_AXIS_ARESETN)
+	  if(!S_AXIS_ARESETN || !SOFT_NRESET_SIGNAL)
 	    begin
 	      write_pointer  <= 0;
 	      data_row_count <= 0;
@@ -203,7 +212,7 @@
 	      data_row_filled<= 4'b0000;
 	    end  
 	  else
-	    if (write_pointer <= NUMBER_OF_INPUT_WORDS-1)
+	    if (write_pointer <= config_out_row_count - 1)
 	      begin
 	        if (fifo_wren)
 	          begin
@@ -211,19 +220,20 @@
 	            // when FIFO write signal is enabled.
 	            write_pointer <= write_pointer + 1;
 	            writes_done <= 1'b0;
+	            
 	          end
-	          if ((write_pointer == NUMBER_OF_INPUT_WORDS - 1))
+	          if ((write_pointer == config_out_row_count - 1))
 	            begin
-	              // reads_done is asserted when NUMBER_OF_INPUT_WORDS numbers of streaming data 
+	              // reads_done is asserted when NUMBER_OF_INPUT_WORDS/ config_out_row_count numbers of streaming data 
 	              // has been written to the FIFO which is also marked by S_AXIS_TLAST(kept for optional usage).
 	              writes_done     <= 1'b1;
 	              write_pointer   <= 0;
 	              data_row_count  <= data_row_count + 1;
 	              
 	              if (data_row_filled == 4'b0111)
-	               data_row_filled <= {data_row_filled[2:0], 1'b0};
+	                   data_row_filled <= {data_row_filled[2:0], 1'b0};
 	              else
-	               data_row_filled <= {data_row_filled[2:0], 1'b1};
+	                   data_row_filled <= {data_row_filled[2:0], 1'b1};
 	            end
 	      end  
 	end
@@ -233,7 +243,7 @@
     
     
 	// FIFO Implementation
-	always @( negedge S_AXIS_ACLK ) begin
+	always @( posedge S_AXIS_ACLK ) begin
        if (fifo_wren) begin
         case (data_row_filled)
           4'b0000: begin
@@ -263,7 +273,7 @@
 
 	always @( posedge S_AXIS_ACLK ) begin
 	    
-        if(!S_AXIS_ARESETN) begin
+        if(!S_AXIS_ARESETN || !SOFT_NRESET_SIGNAL) begin
            data_row_count_prev <= 0;
            process_begin       <= 1'b0;
         end
@@ -350,11 +360,11 @@
     assign out_data_valid = (CELL_SELECT_CONFIG[31] == 1'b1)?  CNN_out_data_valid : MaxPool_out_data_valid;
 
     always @(posedge S_AXIS_ACLK ) begin
-        if(!S_AXIS_ARESETN) begin
+        if(!S_AXIS_ARESETN || !SOFT_NRESET_SIGNAL) begin
             process_pointer <= 0;
             process_done    <= 1'b0;
         end else begin
-            if (process_pointer == NUMBER_OF_INPUT_WORDS - 3) begin
+            if (process_pointer == config_out_row_count - 3) begin
                 process_pointer <= 0;
                 process_done    <= 1'b1;
             end else if (process_begin && M_AXIS_TREADY && !process_done) begin
@@ -419,7 +429,7 @@
     reg process_done_delay_2;
     
     always @(posedge S_AXIS_ACLK) begin
-        if (!S_AXIS_ARESETN) begin 
+        if (!S_AXIS_ARESETN || !SOFT_NRESET_SIGNAL) begin 
             process_done_delay_1 <= 0;
             process_done_delay_2 <= 0;
         end else begin
@@ -433,7 +443,26 @@
             end
         end
     end
+
+//    master_fifo_out master_fifo_out_ins (
+//      .wr_rst_busy(),                          // output wire wr_rst_busy
+//      .rd_rst_busy(),                          // output wire rd_rst_busy
+//      .s_aclk(S_AXIS_ACLK),                    // input wire s_aclk
+//      .s_aresetn(S_AXIS_ARESETN),              // input wire s_aresetn
+//      .s_axis_tvalid(out_data_valid_mready),   // input wire s_axis_tvalid
+//      .s_axis_tready(),                        // output wire s_axis_tready
+//      .s_axis_tdata(out_data),                 // input wire [31 : 0] s_axis_tdata
+//      .s_axis_tlast(process_done_delay_2),     // last data slave
+//      .m_axis_tvalid(m_axis_tvalid_temp),      // output wire m_axis_tvalid
+//      .m_axis_tready(M_AXIS_TREADY),           // input wire m_axis_tready
+//      .m_axis_tdata(M_AXIS_TDATA),             // output wire [31 : 0] m_axis_tdata
+//      .m_axis_tlast(M_AXIS_TLAST)              // last data master
+//    );
     
+//    assign out_data_valid_mready = M_AXIS_TREADY && out_data_valid;
+//    assign M_AXIS_TVALID         = M_AXIS_TREADY && m_axis_tvalid_temp;
+
+    reg [bit_num-1:0] read_pointer; 
     master_fifo_out master_fifo_out_ins (
       .wr_rst_busy(),                          // output wire wr_rst_busy
       .rd_rst_busy(),                          // output wire rd_rst_busy
@@ -443,13 +472,27 @@
       .s_axis_tready(),                        // output wire s_axis_tready
       .s_axis_tdata(out_data),                 // input wire [31 : 0] s_axis_tdata
       .s_axis_tlast(process_done_delay_2),     // last data slave
-      .m_axis_tvalid(m_axis_tvalid_temp),      // output wire m_axis_tvalid
+      .m_axis_tvalid(M_AXIS_TVALID),      // output wire m_axis_tvalid
       .m_axis_tready(M_AXIS_TREADY),           // input wire m_axis_tready
       .m_axis_tdata(M_AXIS_TDATA),             // output wire [31 : 0] m_axis_tdata
       .m_axis_tlast(M_AXIS_TLAST)              // last data master
     );
     
-    assign out_data_valid_mready = M_AXIS_TREADY && out_data_valid;
-    assign M_AXIS_TVALID         = M_AXIS_TREADY && m_axis_tvalid_temp;
+    always @(negedge S_AXIS_ACLK) begin
+        if (!S_AXIS_ARESETN) begin
+            out_data_valid_mready <= 1'b0;
+            read_pointer          <= 1'b0;
+        end else if (out_data_valid) begin 
+            if(read_pointer >= (config_out_row_count - 1)) begin
+                read_pointer           <= 1'b0;
+                out_data_valid_mready  <= 1'b0;
+            end else begin
+                read_pointer <= read_pointer + 1;
+                out_data_valid_mready  <= 1'b1;
+            end
+        end else begin
+            out_data_valid_mready  <= 1'b0;
+        end
+    end
     
-	endmodule
+endmodule

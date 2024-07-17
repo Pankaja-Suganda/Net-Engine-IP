@@ -20,8 +20,5 @@ Compiling module xil_defaultlib.master_fifo_out
 Compiling module xil_defaultlib.net_engine_v1_0_S00_AXIS_1(C_NET...
 Compiling module xil_defaultlib.net_engine_v1_0(C_M00_AXIS_START...
 Compiling module xil_defaultlib.net_engine_v1_0_tb_1
-WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 177. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 186. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 197. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot net_engine_v1_0_tb_1_behav
