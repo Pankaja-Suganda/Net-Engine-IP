@@ -92,12 +92,14 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v
+  D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/float32_add.v
+  D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/float32_multiply.v
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/max_pool_cell.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0_S00_AXI.v
   D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/net_engine_v1_0_S00_AXIS_1.v
   D:/Vivado/Project/ip_repo/net_engine/net_engine_1_0/hdl/net_engine_v1_0.v
 }
-read_ip -quiet d:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/ip/master_fifo_out_1/master_fifo_out.xci
+read_ip -quiet D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/ip/master_fifo_out_1/master_fifo_out.xci
 set_property used_in_implementation false [get_files -all d:/Vivado/Project/net_engine_ip/net_engine_ip.gen/sources_1/ip/master_fifo_out_1/master_fifo_out.xdc]
 set_property used_in_implementation false [get_files -all d:/Vivado/Project/net_engine_ip/net_engine_ip.gen/sources_1/ip/master_fifo_out_1/master_fifo_out_ooc.xdc]
 

@@ -21,6 +21,60 @@
 
 
 module float32_multiply(
-
+        input      [31:0] in_A,
+        input      [31:0] in_B,
+        input             in_valid,
+        output reg [31:0] out_result
     );
+    
+    // Splitting float parts
+    // | Sign Bit (1) | exponent Bits (8) | Mactissa bits (23)
+    wire sign_bit_A       = in_A[31];
+    wire sign_bit_B       = in_B[31];
+    
+    wire [7:0] exponent_A = in_A[30:23];
+    wire [7:0] exponent_B = in_B[30:23];
+    
+    wire [22:0] mantissa_A = in_A[22:0];
+    wire [22:0] mantissa_B = in_B[22:0];
+ 
+     // Sign of the result
+    wire sign_bit = sign_bit_A ^ sign_bit_B;
+
+    // Add the exponents
+    wire [8:0] exponent_bits_temp = exponent_A + exponent_B - 127;
+
+    // Multiply the mantissas
+    wire [47:0] mantissa_bits_temp = {1'b1, mantissa_A} * {1'b1, mantissa_B};
+
+    // Normalize the result
+    reg [7:0]  exponent_bits;
+    reg [22:0] mantissa_bits;
+    
+    always @(*) begin
+        if (mantissa_bits_temp[47]) begin
+            exponent_bits = exponent_bits_temp + 1;
+            mantissa_bits = mantissa_bits_temp[46:24];
+        end else begin
+            exponent_bits = exponent_bits_temp;
+            mantissa_bits = mantissa_bits_temp[45:23];
+        end
+    end
+
+    // Handle special cases (infinity, NaN, zero)
+    always @(*) begin
+        if  (in_valid) begin
+            if (exponent_A == 8'hFF || exponent_B == 8'hFF) begin
+                out_result = {sign_bit, 8'hFF, 23'h0}; // Infinity
+            end else if (exponent_A == 0 || exponent_B == 0) begin
+                out_result = {sign_bit, 8'h00, 23'h0}; // Zero
+            end else begin
+                out_result = {sign_bit, exponent_bits, mantissa_bits};
+            end
+        end
+        else begin
+            out_result = {sign_bit, 8'h00, 23'h0}; // Zero
+        end
+    end
+    
 endmodule

@@ -85,8 +85,8 @@
 	// Define the states of state machine
 	// The control state machine oversees the writing of input streaming data to the FIFO,
 	// and outputs the streaming data from the FIFO
-	parameter [1:0] S_IDLE        = 1'b0, // This is the initial/idle state 
-	                S_WRITE_FIFO  = 1'b1; // In this state FIFO is written with the
+	localparam [1:0] S_IDLE        = 1'b0, // This is the initial/idle state 
+	                 S_WRITE_FIFO  = 1'b1; // In this state FIFO is written with the
 	                                    // input stream data S_AXIS_TDATA 	                                                                 	                                   
 	
 //	parameter [2:0] G_IDLE            = 3'b000,   
@@ -131,6 +131,10 @@
     reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_4 [0 : NUMBER_OF_INPUT_WORDS-1];
     
     reg [C_S_AXIS_TDATA_WIDTH-1 : 0]   config_out_row_count;
+    reg [15:0] data_row_count;
+    reg [3:0] data_row_count_prev;
+    reg [3:0] data_row_filled;
+    reg [3:0] data_row_filled_copy;
 	
 	// I/O Connections assignments
 	// AXIS Slave assignments
@@ -193,10 +197,7 @@
 	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS/ config_out_row_count number of input words.
 	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && !process_begin && !M_AXIS_TVALID && (write_pointer <= config_out_row_count - 1)) ;
  
-    reg [15:0] data_row_count;
-    reg [3:0] data_row_count_prev;
-    reg [3:0] data_row_filled;
-    reg [3:0] data_row_filled_copy;
+
     
 	always@(negedge S_AXIS_ACLK)
 	begin

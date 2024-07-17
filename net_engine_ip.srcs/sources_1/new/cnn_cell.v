@@ -59,73 +59,124 @@ module conv_cell
 // internal params
 integer sum_i, mul_i;
 
-// internal registers
-reg [DATA_WIDTH-1:0] sum_reg;
-reg [DATA_WIDTH-1:0] o_data_reg;
+// Internal registers
+wire [DATA_WIDTH-1:0] multiply_reg [(KERNAL_SIZE * KERNAL_SIZE) - 1:0];
+wire [DATA_WIDTH-1:0] stage_1_sum_reg [4:0];
+wire [DATA_WIDTH-1:0] stage_2_sum_reg [2:0];
+wire [DATA_WIDTH-1:0] stage_3_sum_reg;
+wire [DATA_WIDTH-1:0] o_data_reg;
 reg [DATA_WIDTH-1:0] o_data_reg_temp;
-reg [DATA_WIDTH-1:0] multiply_reg [(KERNAL_SIZE * KERNAL_SIZE) - 1:0];
 
-// control registers
+// Control registers
 reg o_data_valid_reg;
-reg sum_data_valid;
 reg multiply_data_valid;
 
-
-// multiply operation
-always @(posedge C_IN_CLK) begin
-    if(C_IN_DATA_VALID) begin
-        multiply_reg[0] <= D_IN_DATA_1 * D_IN_KERNAL_1;
-        multiply_reg[1] <= D_IN_DATA_2 * D_IN_KERNAL_2;
-        multiply_reg[2] <= D_IN_DATA_3 * D_IN_KERNAL_3;
-        multiply_reg[3] <= D_IN_DATA_4 * D_IN_KERNAL_4;
-        multiply_reg[4] <= D_IN_DATA_5 * D_IN_KERNAL_5;
-        multiply_reg[5] <= D_IN_DATA_6 * D_IN_KERNAL_6;
-        multiply_reg[6] <= D_IN_DATA_7 * D_IN_KERNAL_7;
-        multiply_reg[7] <= D_IN_DATA_8 * D_IN_KERNAL_8;
-        multiply_reg[8] <= D_IN_DATA_9 * D_IN_KERNAL_9;
+// Instantiate the multiplication modules
+generate
+    genvar i;
+    for (i = 0; i < 9; i = i + 1) begin : gen_mult
+        float32_multiply multiply_cell (
+            .in_A((i == 0) ? D_IN_DATA_1 : 
+                  (i == 1) ? D_IN_DATA_2 : 
+                  (i == 2) ? D_IN_DATA_3 : 
+                  (i == 3) ? D_IN_DATA_4 : 
+                  (i == 4) ? D_IN_DATA_5 : 
+                  (i == 5) ? D_IN_DATA_6 : 
+                  (i == 6) ? D_IN_DATA_7 : 
+                  (i == 7) ? D_IN_DATA_8 : 
+                             D_IN_DATA_9),
+            .in_B((i == 0) ? D_IN_KERNAL_1 : 
+                  (i == 1) ? D_IN_KERNAL_2 : 
+                  (i == 2) ? D_IN_KERNAL_3 : 
+                  (i == 3) ? D_IN_KERNAL_4 : 
+                  (i == 4) ? D_IN_KERNAL_5 : 
+                  (i == 5) ? D_IN_KERNAL_6 : 
+                  (i == 6) ? D_IN_KERNAL_7 : 
+                  (i == 7) ? D_IN_KERNAL_8 : 
+                             D_IN_KERNAL_9),
+            .in_valid(C_IN_DATA_VALID),
+            .out_result(multiply_reg[i])
+        );
     end
-    
-    multiply_data_valid <= C_IN_DATA_VALID;
+endgenerate
+
+// Multiply operation
+always @(posedge C_IN_CLK or posedge C_IN_RST) begin
+    if (C_IN_RST) begin
+        multiply_data_valid <= 0;
+    end else if (C_IN_DATA_VALID) begin
+        multiply_data_valid <= 1;
+    end else begin
+        multiply_data_valid <= 0;
+    end
 end
 
-// sum operation
-always @(posedge C_IN_CLK) begin
-    sum_reg = 0;
-    for(sum_i = 0; sum_i < (KERNAL_SIZE * KERNAL_SIZE); sum_i = sum_i + 1) begin
-        sum_reg = sum_reg + multiply_reg[sum_i];
+// Instantiate the addition modules
+generate
+    for (i = 0; i < 4; i = i + 1) begin : gen_add_s1
+        float32_add adder_cell_s1 (
+            .in_A(multiply_reg[i * 2]),
+            .in_B(multiply_reg[i * 2 + 1]),
+            .out_result(stage_1_sum_reg[i])
+        );
     end
-    
-    sum_data_valid <= multiply_data_valid;
-end
+endgenerate
 
-// adding bias
-always @(posedge C_IN_CLK) begin
+float32_add adder_cell_s1_4 (
+    .in_A(multiply_reg[8]),
+    .in_B(32'b0), // Adding zero for the last odd element
+    .out_result(stage_1_sum_reg[4])
+);
 
+generate
+    for (i = 0; i < 2; i = i + 1) begin : gen_add_s2
+        float32_add adder_cell_s2 (
+            .in_A(stage_1_sum_reg[i * 2]),
+            .in_B(stage_1_sum_reg[i * 2 + 1]),
+            .out_result(stage_2_sum_reg[i])
+        );
+    end
+endgenerate
+
+float32_add adder_cell_s2_2 (
+    .in_A(stage_1_sum_reg[4]),
+    .in_B(32'b0), // Adding zero for the last odd element
+    .out_result(stage_2_sum_reg[2])
+);
+
+float32_add adder_cell_s3 (
+    .in_A(stage_2_sum_reg[0]),
+    .in_B(stage_2_sum_reg[1]),
+    .out_result(stage_3_sum_reg)
+);
+
+float32_add adder_cell_bias (
+    .in_A(stage_3_sum_reg),
+    .in_B(D_IN_BIAS),
+    .out_result(o_data_reg)
+);
+
+// Sum operation
+always @(posedge C_IN_CLK or posedge C_IN_RST) begin
     if (C_IN_RST) begin
         o_data_valid_reg <= 0;
     end else begin
-        if (C_IN_DATA_VALID) begin
-            o_data_reg       <= sum_reg * D_IN_BIAS;
-            o_data_valid_reg <= sum_data_valid;
-        end else begin
-            o_data_reg       <= 0;
-            o_data_valid_reg <= 0;
-        end
+        o_data_valid_reg <= multiply_data_valid;
     end
 end
 
 // bit reversing
-integer i;
+integer j;
 always @(*) begin
-    for (i = 0; i < 4; i = i + 1) begin 
-        o_data_reg_temp[i*8 + 7] = o_data_reg[i*8 + 0];
-        o_data_reg_temp[i*8 + 6] = o_data_reg[i*8 + 1];
-        o_data_reg_temp[i*8 + 5] = o_data_reg[i*8 + 2];
-        o_data_reg_temp[i*8 + 4] = o_data_reg[i*8 + 3];
-        o_data_reg_temp[i*8 + 3] = o_data_reg[i*8 + 4];
-        o_data_reg_temp[i*8 + 2] = o_data_reg[i*8 + 5];
-        o_data_reg_temp[i*8 + 1] = o_data_reg[i*8 + 6];
-        o_data_reg_temp[i*8 + 0] = o_data_reg[i*8 + 7];
+    for (j = 0; j < 4; j = j + 1) begin 
+        o_data_reg_temp[j*8 + 7] = o_data_reg[j*8 + 0];
+        o_data_reg_temp[j*8 + 6] = o_data_reg[j*8 + 1];
+        o_data_reg_temp[j*8 + 5] = o_data_reg[j*8 + 2];
+        o_data_reg_temp[j*8 + 4] = o_data_reg[j*8 + 3];
+        o_data_reg_temp[j*8 + 3] = o_data_reg[j*8 + 4];
+        o_data_reg_temp[j*8 + 2] = o_data_reg[j*8 + 5];
+        o_data_reg_temp[j*8 + 1] = o_data_reg[j*8 + 6];
+        o_data_reg_temp[j*8 + 0] = o_data_reg[j*8 + 7];
     end
 end
 

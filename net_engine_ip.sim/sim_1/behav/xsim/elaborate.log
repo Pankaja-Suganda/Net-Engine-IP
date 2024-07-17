@@ -5,20 +5,10 @@ Running: D:/Vivado/Software/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.net_engine_v1_0_S00_AXI_default
-Compiling module xil_defaultlib.maxpooling_cell
-Compiling module xil_defaultlib.conv_cell
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_bhv_ver_s...
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_bhv_ver_p...
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_CONV_VER(...
-Compiling module fifo_generator_v13_2_9.fifo_generator_vlog_beh(C_COMMON...
-Compiling module xil_defaultlib.master_fifo_out
-Compiling module xil_defaultlib.net_engine_v1_0_S00_AXIS_1(C_NET...
-Compiling module xil_defaultlib.net_engine_v1_0(C_M00_AXIS_START...
-Compiling module xil_defaultlib.net_engine_v1_0_tb_1
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot net_engine_v1_0_tb_1_behav
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'stage_1_sum_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:120]
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'stage_1_sum_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:128]
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'stage_2_sum_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:136]
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'stage_2_sum_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:144]
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'stage_3_sum_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:150]
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'o_data_reg' is not permitted [D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/new/cnn_cell.v:156]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
