@@ -21,10 +21,11 @@
 
 
 module float32_multiply(
+        input             in_clk,
         input      [31:0] in_A,
         input      [31:0] in_B,
         input             in_valid,
-        output reg [31:0] out_result
+        output    [31:0] out_result
     );
     
     // Splitting float parts
@@ -50,8 +51,9 @@ module float32_multiply(
     // Normalize the result
     reg [7:0]  exponent_bits;
     reg [22:0] mantissa_bits;
+    reg [31:0] out_result_temp;
     
-    always @(*) begin
+    always @(posedge in_clk) begin
         if (mantissa_bits_temp[47]) begin
             exponent_bits = exponent_bits_temp + 1;
             mantissa_bits = mantissa_bits_temp[46:24];
@@ -62,19 +64,21 @@ module float32_multiply(
     end
 
     // Handle special cases (infinity, NaN, zero)
-    always @(*) begin
+    always @(posedge in_clk) begin
         if  (in_valid) begin
             if (exponent_A == 8'hFF || exponent_B == 8'hFF) begin
-                out_result = {sign_bit, 8'hFF, 23'h0}; // Infinity
+                out_result_temp = {sign_bit, 8'hFF, 23'h0}; // Infinity
             end else if (exponent_A == 0 || exponent_B == 0) begin
-                out_result = {sign_bit, 8'h00, 23'h0}; // Zero
+                out_result_temp = {sign_bit, 8'h00, 23'h0}; // Zero
             end else begin
-                out_result = {sign_bit, exponent_bits, mantissa_bits};
+                out_result_temp = {sign_bit, exponent_bits, mantissa_bits};
             end
         end
         else begin
-            out_result = {sign_bit, 8'h00, 23'h0}; // Zero
+            out_result_temp = {sign_bit, 8'h00, 23'h0}; // Zero
         end
     end
+    
+    assign out_result = out_result_temp;
     
 endmodule

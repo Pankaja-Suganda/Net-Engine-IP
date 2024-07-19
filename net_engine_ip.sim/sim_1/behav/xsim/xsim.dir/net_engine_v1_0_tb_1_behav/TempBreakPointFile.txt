@@ -1,3 +1,1 @@
 Breakpoint File Version 1.0
-142,true,"D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v"
-173,true,"D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v"

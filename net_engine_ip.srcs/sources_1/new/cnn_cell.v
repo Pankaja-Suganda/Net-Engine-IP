@@ -70,12 +70,16 @@ reg [DATA_WIDTH-1:0] o_data_reg_temp;
 // Control registers
 reg o_data_valid_reg;
 reg multiply_data_valid;
+reg sum_stage_1_data_valid;
+reg sum_stage_2_data_valid;
+reg sum_stage_3_data_valid;
 
 // Instantiate the multiplication modules
 generate
     genvar i;
     for (i = 0; i < 9; i = i + 1) begin : gen_mult
         float32_multiply multiply_cell (
+            .in_clk(C_IN_CLK),
             .in_A((i == 0) ? D_IN_DATA_1 : 
                   (i == 1) ? D_IN_DATA_2 : 
                   (i == 2) ? D_IN_DATA_3 : 
@@ -115,44 +119,89 @@ end
 generate
     for (i = 0; i < 4; i = i + 1) begin : gen_add_s1
         float32_add adder_cell_s1 (
+            .in_clk(C_IN_CLK),
             .in_A(multiply_reg[i * 2]),
-            .in_B(multiply_reg[i * 2 + 1]),
+            .in_B(multiply_reg[(i * 2) + 1]),
+            .in_valid(multiply_data_valid),
             .out_result(stage_1_sum_reg[i])
         );
     end
 endgenerate
 
 float32_add adder_cell_s1_4 (
+    .in_clk(C_IN_CLK),
     .in_A(multiply_reg[8]),
     .in_B(32'b0), // Adding zero for the last odd element
+    .in_valid(multiply_data_valid),
     .out_result(stage_1_sum_reg[4])
 );
+
+// Sum operation stage 1
+always @(posedge C_IN_CLK or posedge C_IN_RST) begin
+    if (C_IN_RST) begin
+        sum_stage_1_data_valid <= 0;
+    end else if (multiply_data_valid) begin
+        sum_stage_1_data_valid <= 1;
+    end else begin
+        sum_stage_1_data_valid <= 0;
+    end
+end
 
 generate
     for (i = 0; i < 2; i = i + 1) begin : gen_add_s2
         float32_add adder_cell_s2 (
+            .in_clk(C_IN_CLK),
             .in_A(stage_1_sum_reg[i * 2]),
             .in_B(stage_1_sum_reg[i * 2 + 1]),
+            .in_valid(multiply_data_valid),
             .out_result(stage_2_sum_reg[i])
         );
     end
 endgenerate
 
 float32_add adder_cell_s2_2 (
+    .in_clk(C_IN_CLK),
     .in_A(stage_1_sum_reg[4]),
     .in_B(32'b0), // Adding zero for the last odd element
+    .in_valid(multiply_data_valid),
     .out_result(stage_2_sum_reg[2])
 );
 
+// Sum operation stage 2
+always @(posedge C_IN_CLK) begin
+    if (C_IN_RST) begin
+        sum_stage_2_data_valid <= 0;
+    end else if (sum_stage_1_data_valid) begin
+        sum_stage_2_data_valid <= 1;
+    end else begin
+        sum_stage_2_data_valid <= 0;
+    end
+end
+
 float32_add adder_cell_s3 (
+    .in_clk(C_IN_CLK),
     .in_A(stage_2_sum_reg[0]),
     .in_B(stage_2_sum_reg[1]),
+    .in_valid(multiply_data_valid),
     .out_result(stage_3_sum_reg)
 );
 
+// Sum operation stage 3
+always @(posedge C_IN_CLK) begin
+    if (C_IN_RST) begin
+        sum_stage_3_data_valid <= 0;
+    end else if (sum_stage_2_data_valid) begin
+        sum_stage_3_data_valid <= 1;
+    end else begin
+        sum_stage_3_data_valid <= 0;
+    end
+end
+
 float32_add adder_cell_bias (
+    .in_clk(C_IN_CLK),
     .in_A(stage_3_sum_reg),
     .in_B(D_IN_BIAS),
+    .in_valid(multiply_data_valid),
     .out_result(o_data_reg)
 );
 
@@ -161,30 +210,31 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
     if (C_IN_RST) begin
         o_data_valid_reg <= 0;
     end else begin
-        o_data_valid_reg <= multiply_data_valid;
+        o_data_valid_reg <= sum_stage_3_data_valid;
     end
 end
 
-// bit reversing
-integer j;
-always @(*) begin
-    for (j = 0; j < 4; j = j + 1) begin 
-        o_data_reg_temp[j*8 + 7] = o_data_reg[j*8 + 0];
-        o_data_reg_temp[j*8 + 6] = o_data_reg[j*8 + 1];
-        o_data_reg_temp[j*8 + 5] = o_data_reg[j*8 + 2];
-        o_data_reg_temp[j*8 + 4] = o_data_reg[j*8 + 3];
-        o_data_reg_temp[j*8 + 3] = o_data_reg[j*8 + 4];
-        o_data_reg_temp[j*8 + 2] = o_data_reg[j*8 + 5];
-        o_data_reg_temp[j*8 + 1] = o_data_reg[j*8 + 6];
-        o_data_reg_temp[j*8 + 0] = o_data_reg[j*8 + 7];
-    end
-end
+//// bit reversing
+//integer j;
+//always @(*) begin
+//    for (j = 0; j < 4; j = j + 1) begin 
+//        o_data_reg_temp[j*8 + 7] = o_data_reg[j*8 + 0];
+//        o_data_reg_temp[j*8 + 6] = o_data_reg[j*8 + 1];
+//        o_data_reg_temp[j*8 + 5] = o_data_reg[j*8 + 2];
+//        o_data_reg_temp[j*8 + 4] = o_data_reg[j*8 + 3];
+//        o_data_reg_temp[j*8 + 3] = o_data_reg[j*8 + 4];
+//        o_data_reg_temp[j*8 + 2] = o_data_reg[j*8 + 5];
+//        o_data_reg_temp[j*8 + 1] = o_data_reg[j*8 + 6];
+//        o_data_reg_temp[j*8 + 0] = o_data_reg[j*8 + 7];
+//    end
+//end
 
 // assigning
-assign C_OUT_DATA_VALID = o_data_valid_reg;
-assign C_OUT_DATA       = { o_data_reg_temp[7:0], 
-                            o_data_reg_temp[15:8], 
-                            o_data_reg_temp[23:16], 
-                            o_data_reg_temp[31:24]};
+assign C_OUT_DATA       = o_data_reg;
+assign C_OUT_DATA_VALID = o_data_valid_reg && sum_stage_1_data_valid;
+//assign C_OUT_DATA       = { o_data_reg[7:0], 
+//                            o_data_reg[15:8], 
+//                            o_data_reg[23:16], 
+//                            o_data_reg[31:24]};
 
 endmodule

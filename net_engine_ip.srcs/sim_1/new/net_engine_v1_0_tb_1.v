@@ -181,7 +181,8 @@ module net_engine_v1_0_tb_1();
 //        axis_slave_write({32'b0});
         for(j=0;j<101;j=j+1) begin
             for(i=0;i<101;i=i+1) begin
-                axis_slave_write({24'b0, i});     
+//                axis_slave_write({24'b0, i});   
+                axis_slave_write(int_to_float(i));  
             end
             if (j > 3) begin
                 @(posedge S_WRITE_COMPLETE);
@@ -272,5 +273,38 @@ module net_engine_v1_0_tb_1();
             s00_axis_tlast = 0;
         end
     endtask
+    
+    // Function to convert integer to IEEE 754 floating-point
+    function [31:0] int_to_float(input integer i);
+        reg [31:0] result;
+        reg [7:0] exponent;
+        reg [23:0] mantissa;
+        integer j;
+
+        begin
+            if (i == 0) begin
+                result = 32'b0;
+            end else begin
+                // Determine the sign bit (0 for positive, 1 for negative)
+                result[31] = (i < 0) ? 1 : 0;
+
+                // If negative, take absolute value
+                if (i < 0) i = -i;
+
+                // Find the position of the most significant bit
+                j = 31;
+                while (i[j] == 0) j = j - 1;
+
+                // Calculate exponent and mantissa
+                exponent = j + 127;
+                mantissa = (i << (31 - j)) >> 8;
+
+                result[30:23] = exponent;
+                result[22:0] = mantissa[22:0];
+            end
+
+            int_to_float = result;
+        end
+    endfunction
 
 endmodule

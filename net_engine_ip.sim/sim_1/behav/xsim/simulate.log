@@ -1,4 +1,0 @@
-Time resolution is 1 ps
-Stopped at time : 0 fs : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 142
-Stopped at time : 100 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 173
-$stop called at time : 204135 ns : File "D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sim_1/new/net_engine_v1_0_tb_1.v" Line 258
