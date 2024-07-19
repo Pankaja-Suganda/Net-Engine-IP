@@ -125,10 +125,11 @@
     reg process_begin;
     
     // Row buffers
-    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_1 [0 : NUMBER_OF_INPUT_WORDS-1];
-    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_2 [0 : NUMBER_OF_INPUT_WORDS-1];
-    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_3 [0 : NUMBER_OF_INPUT_WORDS-1];
-    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_4 [0 : NUMBER_OF_INPUT_WORDS-1];
+    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_1   [0 : NUMBER_OF_INPUT_WORDS-1];
+    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_2   [0 : NUMBER_OF_INPUT_WORDS-1];
+    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_3   [0 : NUMBER_OF_INPUT_WORDS-1];
+    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_fifo_4   [0 : NUMBER_OF_INPUT_WORDS-1];
+    reg  [C_S_AXIS_TDATA_WIDTH-1:0] row_data_out_fifo [0 : NUMBER_OF_OUTPUT_WORDS-1];
     
     reg [C_S_AXIS_TDATA_WIDTH-1 : 0]   config_out_row_count;
     reg [15:0] data_row_count;
@@ -149,7 +150,7 @@
 	
 	// soft config row width
 	always @(posedge S_AXIS_ACLK) begin
-        config_out_row_count <= 'd10;//CONFIG_ROW_WIDTH;
+        config_out_row_count <= 'd100;//CONFIG_ROW_WIDTH;
 	end 
 	
 	// AXIS Slave control
@@ -196,8 +197,6 @@
 	// The example design sink is always ready to accept the S_AXIS_TDATA  until
 	// the FIFO is not filled with NUMBER_OF_INPUT_WORDS/ config_out_row_count number of input words.
 	assign axis_tready = ((mst_exec_state == S_WRITE_FIFO) && !process_begin && !M_AXIS_TVALID && (write_pointer <= config_out_row_count - 1)) ;
- 
-
     
 	always@(negedge S_AXIS_ACLK)
 	begin
@@ -244,7 +243,7 @@
     
     
 	// FIFO Implementation
-	always @( posedge S_AXIS_ACLK ) begin
+	always @( negedge S_AXIS_ACLK ) begin
        if (fifo_wren) begin
         case (data_row_filled)
           4'b0000: begin
@@ -445,31 +444,13 @@
         end
     end
 
-//    master_fifo_out master_fifo_out_ins (
-//      .wr_rst_busy(),                          // output wire wr_rst_busy
-//      .rd_rst_busy(),                          // output wire rd_rst_busy
-//      .s_aclk(S_AXIS_ACLK),                    // input wire s_aclk
-//      .s_aresetn(S_AXIS_ARESETN),              // input wire s_aresetn
-//      .s_axis_tvalid(out_data_valid_mready),   // input wire s_axis_tvalid
-//      .s_axis_tready(),                        // output wire s_axis_tready
-//      .s_axis_tdata(out_data),                 // input wire [31 : 0] s_axis_tdata
-//      .s_axis_tlast(process_done_delay_2),     // last data slave
-//      .m_axis_tvalid(m_axis_tvalid_temp),      // output wire m_axis_tvalid
-//      .m_axis_tready(M_AXIS_TREADY),           // input wire m_axis_tready
-//      .m_axis_tdata(M_AXIS_TDATA),             // output wire [31 : 0] m_axis_tdata
-//      .m_axis_tlast(M_AXIS_TLAST)              // last data master
-//    );
-    
-//    assign out_data_valid_mready = M_AXIS_TREADY && out_data_valid;
-//    assign M_AXIS_TVALID         = M_AXIS_TREADY && m_axis_tvalid_temp;
-
     reg [bit_num-1:0] read_pointer; 
     master_fifo_out master_fifo_out_ins (
       .wr_rst_busy(),                          // output wire wr_rst_busy
       .rd_rst_busy(),                          // output wire rd_rst_busy
       .s_aclk(S_AXIS_ACLK),                    // input wire s_aclk
       .s_aresetn(S_AXIS_ARESETN),              // input wire s_aresetn
-      .s_axis_tvalid(out_data_valid_mready),   // input wire s_axis_tvalid
+      .s_axis_tvalid(out_data_valid),   // input wire s_axis_tvalid
       .s_axis_tready(),                        // output wire s_axis_tready
       .s_axis_tdata(out_data),                 // input wire [31 : 0] s_axis_tdata
       .s_axis_tlast(process_done_delay_2),     // last data slave
@@ -480,18 +461,25 @@
     );
     
     always @(negedge S_AXIS_ACLK) begin
+        if (out_data_valid) begin
+            row_data_out_fifo[read_pointer] <= out_data;
+        end
+    end
+    
+    always @(negedge S_AXIS_ACLK) begin
         if (!S_AXIS_ARESETN) begin
             out_data_valid_mready <= 1'b0;
             read_pointer          <= 1'b0;
         end else if (out_data_valid) begin 
-            if(read_pointer >= (config_out_row_count - 1)) begin
+            if(read_pointer >= (config_out_row_count - 2)) begin
                 read_pointer           <= 1'b0;
                 out_data_valid_mready  <= 1'b0;
             end else begin
                 read_pointer <= read_pointer + 1;
                 out_data_valid_mready  <= 1'b1;
             end
-        end else begin
+        end 
+        else begin
             out_data_valid_mready  <= 1'b0;
         end
     end

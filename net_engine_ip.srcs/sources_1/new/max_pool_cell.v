@@ -57,14 +57,15 @@ reg [DATA_WIDTH-1:0] d_in_data_9_temp;
 reg first_stage_valid;
 reg second_stage_valid;
 // first stage
-always @(posedge C_IN_CLK or posedge C_IN_RST) begin
-    if (C_IN_RST) begin
+always @(posedge C_IN_CLK ) begin
+    if (C_IN_RST || !C_IN_DATA_VALID) begin
         max_1_2 <= 0;
         max_3_4 <= 0;
         max_5_6 <= 0;
         max_7_8 <= 0;
         first_stage_valid <= 'b0;
-    end else if (C_IN_DATA_VALID) begin
+    end
+    if (C_IN_DATA_VALID) begin
         max_1_2 <= (D_IN_DATA_1 > D_IN_DATA_2) ? D_IN_DATA_1 : D_IN_DATA_2;
         max_3_4 <= (D_IN_DATA_3 > D_IN_DATA_4) ? D_IN_DATA_3 : D_IN_DATA_4;
         max_5_6 <= (D_IN_DATA_5 > D_IN_DATA_6) ? D_IN_DATA_5 : D_IN_DATA_6;
@@ -78,8 +79,8 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
 end
 
 // second stage
-always @(posedge C_IN_CLK or posedge C_IN_RST) begin
-    if (C_IN_RST) begin
+always @(posedge C_IN_CLK ) begin
+    if (C_IN_RST || !first_stage_valid) begin
         max_1_2_3_4 <= 0;
         max_5_6_7_8 <= 0;
         second_stage_valid <= 'b0;
@@ -94,9 +95,11 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
 end
 
 // third stage
-always @(posedge C_IN_CLK or posedge C_IN_RST) begin
-    if (C_IN_RST) begin
-        max_pool <= 0;
+always @(posedge C_IN_CLK ) begin
+    if (C_IN_RST|| !second_stage_valid) begin
+        max_pool     <= 0;
+        output_data  <= 0;
+        output_valid <= 1'b0;
     end else if (second_stage_valid) begin
         // Calculate the maximum of max_1_2_3_4 and max_5_6_7_8 first
         if (max_1_2_3_4 > max_5_6_7_8) begin
@@ -120,20 +123,24 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
 end
 
 // bit reversing
-integer i;
-always @(*) begin
-    for (i = 0; i < 4; i = i + 1) begin 
-        o_data_reg_temp[i*8 + 7] = output_data[i*8 + 0];
-        o_data_reg_temp[i*8 + 6] = output_data[i*8 + 1];
-        o_data_reg_temp[i*8 + 5] = output_data[i*8 + 2];
-        o_data_reg_temp[i*8 + 4] = output_data[i*8 + 3];
-        o_data_reg_temp[i*8 + 3] = output_data[i*8 + 4];
-        o_data_reg_temp[i*8 + 2] = output_data[i*8 + 5];
-        o_data_reg_temp[i*8 + 1] = output_data[i*8 + 6];
-        o_data_reg_temp[i*8 + 0] = output_data[i*8 + 7];
-    end
-end
-assign C_OUT_DATA       = o_data_reg_temp;
-assign C_OUT_DATA_VALID = output_valid;
+//integer i;
+//always @(*) begin
+//    for (i = 0; i < 4; i = i + 1) begin 
+//        o_data_reg_temp[i*8 + 7] = output_data[i*8 + 0];
+//        o_data_reg_temp[i*8 + 6] = output_data[i*8 + 1];
+//        o_data_reg_temp[i*8 + 5] = output_data[i*8 + 2];
+//        o_data_reg_temp[i*8 + 4] = output_data[i*8 + 3];
+//        o_data_reg_temp[i*8 + 3] = output_data[i*8 + 4];
+//        o_data_reg_temp[i*8 + 2] = output_data[i*8 + 5];
+//        o_data_reg_temp[i*8 + 1] = output_data[i*8 + 6];
+//        o_data_reg_temp[i*8 + 0] = output_data[i*8 + 7];
+//    end
+//end
 
+//assign C_OUT_DATA       = o_data_reg_temp;
+assign C_OUT_DATA_VALID = output_valid && second_stage_valid;
+assign C_OUT_DATA       = { output_data[7:0], 
+                            output_data[15:8], 
+                            output_data[23:16], 
+                            output_data[31:24]};
 endmodule
