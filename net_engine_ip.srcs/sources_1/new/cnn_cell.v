@@ -65,6 +65,7 @@ wire [DATA_WIDTH-1:0] stage_1_sum_reg [4:0];
 wire [DATA_WIDTH-1:0] stage_2_sum_reg [2:0];
 wire [DATA_WIDTH-1:0] stage_3_sum_reg;
 wire [DATA_WIDTH-1:0] o_data_reg;
+wire [DATA_WIDTH-1:0] bias_stage_2_sum;
 reg [DATA_WIDTH-1:0] o_data_reg_temp;
 
 // Control registers
@@ -73,6 +74,7 @@ reg multiply_data_valid;
 reg sum_stage_1_data_valid;
 reg sum_stage_2_data_valid;
 reg sum_stage_3_data_valid;
+reg sum_stage_4_data_valid;
 
 // Instantiate the multiplication modules
 generate
@@ -199,8 +201,27 @@ end
 
 float32_add adder_cell_bias (
     .in_clk(C_IN_CLK),
-    .in_A(stage_3_sum_reg),
+    .in_A(stage_2_sum_reg[2]),
     .in_B(D_IN_BIAS),
+    .in_valid(multiply_data_valid),
+    .out_result(bias_stage_2_sum)
+);
+
+// Sum operation stage 4
+always @(posedge C_IN_CLK) begin
+    if (C_IN_RST) begin
+        sum_stage_4_data_valid <= 0;
+    end else if (sum_stage_3_data_valid) begin
+        sum_stage_4_data_valid <= 1;
+    end else begin
+        sum_stage_4_data_valid <= 0;
+    end
+end
+
+float32_add adder_last (
+    .in_clk(C_IN_CLK),
+    .in_A(stage_3_sum_reg),
+    .in_B(bias_stage_2_sum),
     .in_valid(multiply_data_valid),
     .out_result(o_data_reg)
 );
@@ -210,7 +231,7 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
     if (C_IN_RST) begin
         o_data_valid_reg <= 0;
     end else begin
-        o_data_valid_reg <= sum_stage_3_data_valid;
+        o_data_valid_reg <= sum_stage_4_data_valid;
     end
 end
 

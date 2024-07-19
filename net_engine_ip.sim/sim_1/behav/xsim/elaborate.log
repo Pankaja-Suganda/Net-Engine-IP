@@ -6,21 +6,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.net_engine_v1_0_S00_AXI_default
-Compiling module xil_defaultlib.maxpooling_cell
-Compiling module xil_defaultlib.float32_multiply
-Compiling module xil_defaultlib.float32_add
-Compiling module xil_defaultlib.conv_cell_default
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_bhv_ver_s...
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_bhv_ver_p...
-Compiling module fifo_generator_v13_2_9.fifo_generator_v13_2_9_CONV_VER(...
-Compiling module fifo_generator_v13_2_9.fifo_generator_vlog_beh(C_COMMON...
-Compiling module xil_defaultlib.master_fifo_out
-Compiling module xil_defaultlib.net_engine_v1_0_S00_AXIS_1(C_NET...
-Compiling module xil_defaultlib.net_engine_v1_0(C_M00_AXIS_START...
-Compiling module xil_defaultlib.net_engine_v1_0_tb_1
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot net_engine_v1_0_tb_1_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
