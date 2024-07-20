@@ -92,7 +92,7 @@ set_property ip_output_repo d:/Vivado/Project/net_engine_ip/net_engine_ip.cache/
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet d:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/ip/floating_point_0_1/floating_point_0.xci
+read_ip -quiet D:/Vivado/Project/net_engine_ip/net_engine_ip.srcs/sources_1/ip/floating_point_0_1/floating_point_0.xci
 set_property used_in_implementation false [get_files -all d:/Vivado/Project/net_engine_ip/net_engine_ip.gen/sources_1/ip/floating_point_0_1/floating_point_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
