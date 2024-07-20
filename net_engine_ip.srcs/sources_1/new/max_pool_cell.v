@@ -56,6 +56,42 @@ reg [DATA_WIDTH-1:0] d_in_data_9_temp;
 
 reg first_stage_valid;
 reg second_stage_valid;
+
+// compare function
+function [DATA_WIDTH-1:0] max_fp;
+    input [DATA_WIDTH-1:0] a;
+    input [DATA_WIDTH-1:0] b;
+    reg a_sign, b_sign;
+    reg [7:0] a_exp, b_exp;
+    reg [22:0] a_mant, b_mant;
+    begin
+        a_sign = a[DATA_WIDTH-1];
+        b_sign = b[DATA_WIDTH-1];
+        a_exp = a[DATA_WIDTH-2:23];
+        b_exp = b[DATA_WIDTH-2:23];
+        a_mant = a[22:0];
+        b_mant = b[22:0];
+
+        if (a_sign == b_sign) begin
+            if (a_exp == b_exp) begin
+                if (a_mant >= b_mant) begin
+                    max_fp = a;
+                end else begin
+                    max_fp = b;
+                end
+            end else if (a_exp > b_exp) begin
+                max_fp = a;
+            end else begin
+                max_fp = b;
+            end
+        end else if (a_sign < b_sign) begin
+            max_fp = a;
+        end else begin
+            max_fp = b;
+        end
+    end
+endfunction
+
 // first stage
 always @(posedge C_IN_CLK ) begin
     if (C_IN_RST || !C_IN_DATA_VALID) begin
@@ -66,10 +102,10 @@ always @(posedge C_IN_CLK ) begin
         first_stage_valid <= 'b0;
     end
     if (C_IN_DATA_VALID) begin
-        max_1_2 <= (D_IN_DATA_1 > D_IN_DATA_2) ? D_IN_DATA_1 : D_IN_DATA_2;
-        max_3_4 <= (D_IN_DATA_3 > D_IN_DATA_4) ? D_IN_DATA_3 : D_IN_DATA_4;
-        max_5_6 <= (D_IN_DATA_5 > D_IN_DATA_6) ? D_IN_DATA_5 : D_IN_DATA_6;
-        max_7_8 <= (D_IN_DATA_7 > D_IN_DATA_8) ? D_IN_DATA_7 : D_IN_DATA_8;
+        max_1_2 <= max_fp(D_IN_DATA_1, D_IN_DATA_2); // (D_IN_DATA_1 > D_IN_DATA_2) ? D_IN_DATA_1 : D_IN_DATA_2;
+        max_3_4 <= max_fp(D_IN_DATA_3, D_IN_DATA_4); //(D_IN_DATA_3 > D_IN_DATA_4) ? D_IN_DATA_3 : D_IN_DATA_4;
+        max_5_6 <= max_fp(D_IN_DATA_5, D_IN_DATA_6); //(D_IN_DATA_5 > D_IN_DATA_6) ? D_IN_DATA_5 : D_IN_DATA_6;
+        max_7_8 <= max_fp(D_IN_DATA_7, D_IN_DATA_8); //(D_IN_DATA_7 > D_IN_DATA_8) ? D_IN_DATA_7 : D_IN_DATA_8;
         d_in_data_9_temp <= D_IN_DATA_9;
         first_stage_valid <= 'b1;
     end
@@ -85,8 +121,8 @@ always @(posedge C_IN_CLK ) begin
         max_5_6_7_8 <= 0;
         second_stage_valid <= 'b0;
     end else if (first_stage_valid) begin
-        max_1_2_3_4 <= (max_1_2 > max_3_4) ? max_1_2 : max_3_4;
-        max_5_6_7_8 <= (max_5_6 > max_7_8) ? max_5_6 : max_7_8;
+        max_1_2_3_4 <= max_fp(max_1_2, max_3_4); //(max_1_2 > max_3_4) ? max_1_2 : max_3_4;
+        max_5_6_7_8 <= max_fp(max_5_6, max_7_8); //(max_5_6 > max_7_8) ? max_5_6 : max_7_8;
         second_stage_valid <= 'b1;
     end
     else if (output_valid) begin
@@ -102,19 +138,20 @@ always @(posedge C_IN_CLK ) begin
         output_valid <= 1'b0;
     end else if (second_stage_valid) begin
         // Calculate the maximum of max_1_2_3_4 and max_5_6_7_8 first
-        if (max_1_2_3_4 > max_5_6_7_8) begin
-            max_pool <= max_1_2_3_4;
-        end else begin
-            max_pool <= max_5_6_7_8;
-        end
+//        if (max_1_2_3_4 > max_5_6_7_8) begin
+//            max_pool <= max_1_2_3_4;
+//        end else begin
+//            max_pool <= max_5_6_7_8;
+//        end
+        max_pool <= max_fp(max_1_2_3_4, max_5_6_7_8);
 
         // Then calculate the maximum of max_pool and D_IN_DATA_9
-        if (max_pool > d_in_data_9_temp) begin
-            output_data <= max_pool;
-        end else begin
-            output_data <= d_in_data_9_temp;
-        end
-
+//        if (max_pool > d_in_data_9_temp) begin
+//            output_data <= max_pool;
+//        end else begin
+//            output_data <= d_in_data_9_temp;
+//        end
+        output_data  <= max_fp(max_pool, d_in_data_9_temp);
         output_valid <= 1'b1;
     end else begin
         output_data  <= 0;

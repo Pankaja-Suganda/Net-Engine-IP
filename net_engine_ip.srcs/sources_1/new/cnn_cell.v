@@ -70,11 +70,13 @@ reg [DATA_WIDTH-1:0] o_data_reg_temp;
 
 // Control registers
 reg o_data_valid_reg;
+reg o_data_valid_reg_delay;
 reg multiply_data_valid;
 reg sum_stage_1_data_valid;
 reg sum_stage_2_data_valid;
 reg sum_stage_3_data_valid;
 reg sum_stage_4_data_valid;
+wire adder_data_valid;
 
 // Instantiate the multiplication modules
 generate
@@ -124,7 +126,7 @@ generate
             .in_clk(C_IN_CLK),
             .in_A(multiply_reg[i * 2]),
             .in_B(multiply_reg[(i * 2) + 1]),
-            .in_valid(multiply_data_valid),
+            .in_valid(multiply_data_valid || o_data_valid_reg),
             .out_result(stage_1_sum_reg[i])
         );
     end
@@ -134,7 +136,7 @@ float32_add adder_cell_s1_4 (
     .in_clk(C_IN_CLK),
     .in_A(multiply_reg[8]),
     .in_B(32'b0), // Adding zero for the last odd element
-    .in_valid(multiply_data_valid),
+    .in_valid(sum_stage_1_data_valid || o_data_valid_reg),
     .out_result(stage_1_sum_reg[4])
 );
 
@@ -155,7 +157,7 @@ generate
             .in_clk(C_IN_CLK),
             .in_A(stage_1_sum_reg[i * 2]),
             .in_B(stage_1_sum_reg[i * 2 + 1]),
-            .in_valid(multiply_data_valid),
+            .in_valid(sum_stage_2_data_valid || o_data_valid_reg),
             .out_result(stage_2_sum_reg[i])
         );
     end
@@ -165,7 +167,7 @@ float32_add adder_cell_s2_2 (
     .in_clk(C_IN_CLK),
     .in_A(stage_1_sum_reg[4]),
     .in_B(32'b0), // Adding zero for the last odd element
-    .in_valid(multiply_data_valid),
+    .in_valid(sum_stage_2_data_valid || o_data_valid_reg),
     .out_result(stage_2_sum_reg[2])
 );
 
@@ -184,7 +186,7 @@ float32_add adder_cell_s3 (
     .in_clk(C_IN_CLK),
     .in_A(stage_2_sum_reg[0]),
     .in_B(stage_2_sum_reg[1]),
-    .in_valid(multiply_data_valid),
+    .in_valid(sum_stage_3_data_valid || o_data_valid_reg),
     .out_result(stage_3_sum_reg)
 );
 
@@ -203,7 +205,7 @@ float32_add adder_cell_bias (
     .in_clk(C_IN_CLK),
     .in_A(stage_2_sum_reg[2]),
     .in_B(D_IN_BIAS),
-    .in_valid(multiply_data_valid),
+    .in_valid(sum_stage_3_data_valid || o_data_valid_reg),
     .out_result(bias_stage_2_sum)
 );
 
@@ -222,7 +224,7 @@ float32_add adder_last (
     .in_clk(C_IN_CLK),
     .in_A(stage_3_sum_reg),
     .in_B(bias_stage_2_sum),
-    .in_valid(multiply_data_valid),
+    .in_valid(sum_stage_4_data_valid || o_data_valid_reg),
     .out_result(o_data_reg)
 );
 
@@ -232,6 +234,15 @@ always @(posedge C_IN_CLK or posedge C_IN_RST) begin
         o_data_valid_reg <= 0;
     end else begin
         o_data_valid_reg <= sum_stage_4_data_valid;
+    end
+end
+
+// output valid delay
+always @(posedge C_IN_CLK or posedge C_IN_RST) begin
+    if (C_IN_RST) begin
+        o_data_valid_reg_delay <= 0;
+    end else begin
+        o_data_valid_reg_delay <= o_data_valid_reg;
     end
 end
 
@@ -252,7 +263,7 @@ end
 
 // assigning
 assign C_OUT_DATA       = o_data_reg;
-assign C_OUT_DATA_VALID = o_data_valid_reg && sum_stage_1_data_valid;
+assign C_OUT_DATA_VALID = o_data_valid_reg && sum_stage_4_data_valid;
 //assign C_OUT_DATA       = { o_data_reg[7:0], 
 //                            o_data_reg[15:8], 
 //                            o_data_reg[23:16], 
